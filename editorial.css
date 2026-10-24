@@ -1,6 +1,6 @@
 /* Orsini editorial system — shared by the CMS-driven GitHub Pages site. */
-@font-face{font-family:OrsiniSerif;src:url('fonts/SourceSerif4-latin.woff') format('woff');font-weight:200 900;font-style:normal;font-display:swap}
-@font-face{font-family:OrsiniInter;src:url('fonts/Inter-latin.woff') format('woff');font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:OrsiniSerif;src:url('fonts/SourceSerif4-latin.woff2') format('woff2');font-weight:200 900;font-style:normal;font-display:swap}
+@font-face{font-family:OrsiniInter;src:url('fonts/Inter-latin.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
 :root{--paper:#f7f7ef;--ink:#20231e;--accent:#edf23d;--line:#c8cbbd;--muted:#5c6455;--serif:OrsiniSerif,Georgia,serif}
 body{font-family:OrsiniInter,Arial,sans-serif;font-size:15px;line-height:1.8;background:var(--paper);color:var(--ink)}
 body h1,body h2,body h3{font-family:var(--serif);font-weight:350;letter-spacing:0;line-height:1.25}

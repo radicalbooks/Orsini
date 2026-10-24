@@ -1,0 +1,50 @@
+name: SEO · publicació i indexació
+on:
+  # The repository currently uses GitHub's branch-based Pages deployment.
+  # Run afterwards so the CMS-derived static HTML is the final deployment.
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: orsini-seo-pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate static content and SEO
+        run: node scripts/build-seo.mjs
+      - name: Validate generated pages
+        run: node scripts/check-seo.mjs
+      - name: Prepare public files
+        run: |
+          mkdir _site
+          cp *.html *.css *.js *.svg *.webp sitemap.xml robots.txt .nojekyll _site/
+          cp -r assets fonts vendor content _site/
+          cp *-indexnow.txt _site/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Publish
+        id: deploy
+        uses: actions/deploy-pages@v4
+      - name: Notify IndexNow
+        # Discovery failure must not undo a successful site publication.
+        continue-on-error: true
+        run: node scripts/notify-indexnow.mjs

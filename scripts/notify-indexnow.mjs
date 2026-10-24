@@ -1,0 +1,10 @@
+import {readFile} from 'node:fs/promises';
+const base='https://radicalbooks.github.io/Orsini/';
+const key=(await readFile('orsini-indexnow.txt','utf8')).trim();
+const live=await fetch(base+'orsini-indexnow.txt');
+if(!live.ok||(await live.text()).trim()!==key)throw Error('Published IndexNow key is not yet available');
+const sitemap=await readFile('sitemap.xml','utf8');
+const urlList=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1]);
+const response=await fetch('https://api.indexnow.org/indexnow',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({host:'radicalbooks.github.io',key,keyLocation:base+'orsini-indexnow.txt',urlList}),signal:AbortSignal.timeout(30000)});
+console.log('IndexNow HTTP '+response.status+'; '+urlList.length+' URLs submitted. Acceptance is not an indexing guarantee.');
+if(![200,202].includes(response.status))throw Error('IndexNow: '+await response.text());
