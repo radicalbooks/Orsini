@@ -83,6 +83,15 @@ content:
       - name: summary
         label: Resum
         type: text
+      - name: introduction
+        label: Introducció de la capçalera
+        type: text
+      - name: details
+        label: Eixos, objectius i context
+        type: rich-text
+      - name: practical
+        label: Informació pràctica (D’un cop d’ull)
+        type: rich-text
       - name: body
         label: Presentació
         type: rich-text

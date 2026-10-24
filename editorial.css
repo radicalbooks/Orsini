@@ -72,3 +72,73 @@ body h1,body h2,body h3{font-family:var(--serif);font-weight:350;letter-spacing:
 @media(max-width:900px){.v4 .nav{flex-wrap:wrap}.v4 .menubtn:not([hidden]){display:block;margin-left:auto}.js .v4 .navlinks{display:none;width:100%;gap:20px;padding:8px 0 14px}.js .v4 .navlinks.open{display:flex;flex-wrap:wrap}.v4 .navlinks{gap:20px}.v4 .footer-top{grid-template-columns:1fr 110px}.v4 .footer-links{grid-column:1;grid-row:2;justify-content:flex-start}.v4 .static-art{grid-column:2;grid-row:1/3}.interior-layout{gap:35px;grid-template-columns:minmax(0,1.3fr) minmax(160px,.7fr)}.v4 .course-list .course-row{grid-template-columns:25px minmax(0,1fr) 24px}.v4 .course-tag{display:none}}
 @media(max-width:600px){body{font-size:14px}.v4 .wrap{padding-left:5%;padding-right:5%}.v4 .nav{min-height:70px;padding:11px 0;gap:12px}.v4 .brand{gap:9px}.v4 .brand img,.v4 .brand-symbol{width:36px;height:36px}.v4 .brand strong{font-size:32px}.v4 .brand span{font-size:8px;line-height:1.3;max-width:63px;margin-top:4px}.v4 .home-intro{grid-template-columns:1fr;padding:24px 0;gap:12px}.v4 .intro-copy h1{font-size:36px;line-height:1.23;margin:12px 0 15px}.v4 .intro-copy>p{font-size:13px;line-height:1.8}.v4 .home-courses{padding-top:27px;padding-bottom:28px}.v4 .catalog-head h2{font-size:30px}.v4 .course-list .course-row{grid-template-columns:20px minmax(0,1fr) 20px;gap:9px;padding:16px 0}.v4 .course-title{font-size:25px;line-height:1.3}.v4 .course-summary,.v4 .inner .course-summary{font-size:11px;line-height:1.7}.v4 .course-num{font-size:9px;padding-top:6px}.v4 .inner{padding-bottom:30px}.v4 .inner .page-hero{grid-template-columns:1fr;padding:19px 0 27px;gap:16px}.v4 .inner .page-hero h1,.v4 .inner .page-hero .lead{grid-column:1}.v4 .inner h1,.v4 .registration h1{font-size:35px;line-height:1.25}.v4 .inner .lead{font-size:14px;line-height:1.8}.interior-layout{grid-template-columns:1fr;padding:28px 0;gap:20px}.v4 .inner h2{font-size:27px;margin:25px 0 13px}.v4 .inner p,.v4 .inner li{font-size:14px;line-height:1.85}.interior-art{min-height:120px;padding:10px 0}.interior-art img{width:150px;max-height:130px}.v4 .subnav{gap:18px;font-size:10px}.v4 .footer-top{gap:15px 20px;grid-template-columns:minmax(0,1fr) 95px}.v4 .footer-top p{font-size:10px}.v4 .footer-links{font-size:9px;gap:12px}.v4 .static-art{width:95px}.v4 .static-art img{width:90px;height:75px}.v4 .footer small{font-size:8px}.v4 .next-links{gap:18px}.v4 .next-links h2{font-size:24px}.v4 .archive-grid{grid-template-columns:1fr}.v4 .catalog-foot{font-size:10px;line-height:1.8}.v4 .registration{padding:28px 5% 35px}.v4 .form-layout{grid-template-columns:1fr;gap:25px;margin-top:25px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.v4 .course-row,.v4 .course-row .arrow{transition:none}.v4 .course-row .arrow{transform:none!important}}
+
+/* Interior pages: the complete editorial composition of the original proposal. */
+.v4 .inner .page-hero{align-items:start;padding:26px 0 38px;gap:18px 65px}
+.v4 .inner .page-hero>.breadcrumb{margin-bottom:10px}
+.v4 .inner .page-hero h1{max-width:800px}
+.v4 .inner .page-hero .lead{font-size:15px;line-height:1.8}
+.hero-intro{grid-column:2;max-width:580px}
+.v4 .hero-drawing{display:block;width:94px;height:66px;object-fit:contain;margin:0 0 17px;mix-blend-mode:multiply}
+.v4 .inner .hero-intro .lead{margin:0;padding:0}
+.v4 .course-hero .course-kicker{grid-column:1/-1;display:flex;align-items:center;gap:15px;margin:0 0 4px;font-size:11px}
+.course-kicker img{width:55px;height:42px;object-fit:contain;mix-blend-mode:multiply}
+.v4 .inner .course-hero h1{font-size:clamp(35px,3.7vw,53px);font-weight:300;line-height:1.25}
+.course-layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(275px,1fr);gap:8%;align-items:start;padding:40px 0 42px}
+.v4 .course-layout .cms-body>p:first-child{margin:0 0 25px}
+.v4 .course-layout .cms-body ul{padding-left:20px;margin:12px 0 25px}
+.v4 .course-layout .cms-body li{padding:7px 0;line-height:1.75}
+.v4 .inner .course-info{position:sticky;top:110px;background:#eff1e4;border:0;padding:25px;border-radius:2px;min-width:0}
+.v4 .inner .course-info h2{font-size:27px;margin:0 0 20px;line-height:1.3}
+.course-info dl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:15px 20px;margin:0 0 20px;align-items:baseline}
+.course-info dt{font-size:10px;line-height:1.7;color:var(--muted)}
+.course-info dd{font-size:13px;line-height:1.7;margin:0}
+.v4 .inner .course-info p{font-size:11px;line-height:1.8;margin:16px 0 18px}
+.v4 .course-info .cta{width:100%;box-sizing:border-box;justify-content:space-between;margin:4px 0 13px;padding:12px 16px;font-size:11px}
+.v4 .course-info .textlink{display:block;font-size:10px;text-align:center;text-underline-offset:4px}
+.course-details,.v4 .cms-body details{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px 0;margin:25px 0 0}
+.v4 .cms-body summary{cursor:pointer;font-size:14px;line-height:1.6;font-weight:500;list-style:none;display:flex;align-items:baseline;justify-content:space-between;gap:20px}
+.v4 .cms-body summary::-webkit-details-marker{display:none}
+.v4 .cms-body summary::after{content:'+';font:300 20px/1 OrsiniInter,Arial,sans-serif}
+.v4 .cms-body details[open]>summary{margin-bottom:18px}
+.v4 .cms-body details[open]>summary::after{content:'−'}
+.v4 .cms-body summary:hover{text-decoration:underline;text-underline-offset:4px}
+.v4 .cms-body details>p:last-child{margin-bottom:0}
+.back-to-courses{display:flex;justify-content:space-between;gap:25px;border-top:1px solid var(--line);padding:20px 0 0;font-size:11px}
+.centre-page .interior-layout{grid-template-columns:minmax(0,1.1fr) minmax(200px,1fr);gap:70px}
+.centre-page .interior-art{flex-direction:column;padding-top:25px;gap:20px}
+.centre-page .interior-art img{width:240px;max-height:200px}
+.v4 .centre-page .interior-art .cta{font-size:11px;margin-top:15px}
+.practical-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.v4 .inner .practical-grid h2:first-child{margin-top:0}
+.v4 .participa-page .interior-layout{padding-bottom:20px}
+.v4 .arxiu-page .interior-copy{max-width:850px}
+.v4 .arxiu-page .interior-layout{padding-bottom:35px}
+.v4 .resource-row{display:flex;align-items:center;justify-content:space-between;gap:35px;border-top:1px solid var(--line);padding:25px 0 0;margin-top:20px}
+.v4 .inner .resource-row h2{font-size:25px;margin:0 0 6px}
+.v4 .inner .resource-row p{font-size:12px;margin:0;color:var(--muted)}
+.v4 .resource-row .cta{flex-shrink:0;margin:0;font-size:11px}
+.reading-layout{display:block;max-width:800px;margin:0 auto;padding:40px 0}
+.v4 .article-page .page-hero{grid-template-columns:1fr;max-width:1000px;margin:0 auto}
+.v4 .article-page .page-hero h1,.v4 .article-page .page-hero .lead{grid-column:1}
+.v4 main.legal-page{max-width:1440px;margin:0 auto;padding:28px 5% 45px;line-height:1.8}
+.v4 .legal-page .breadcrumb{font-size:10px;margin-bottom:25px}
+.v4 .inner.legal-page>h1{padding:0 0 30px;border-bottom:1px solid var(--line);margin:0 0 30px;font-size:clamp(35px,4vw,53px)}
+.v4 .legal-page>section,.v4 .legal-page>p,.v4 .legal-page>h2{max-width:800px}
+.v4 .legal-page>section h2{font-size:28px;margin-top:30px}
+.v4 .registration.inner{padding-top:0;max-width:1440px}
+.v4 .registration .test-alert{margin-top:28px}
+.v4 .registration .form-layout{margin-top:32px;gap:8%;padding-bottom:10px}
+.v4 .registration .aside{background:#eff1e4;border:0;padding:25px}
+.v4 .registration .aside h2{font-size:28px;margin-top:10px}
+.v4 .footer-links button{font:inherit;line-height:inherit;background:transparent;color:inherit;border:0;padding:0;text-decoration:underline;cursor:pointer}
+.v4 :focus-visible{outline:2px solid var(--ink);outline-offset:5px}
+@media(max-width:900px){.v4 .inner .page-hero{gap:18px 35px}.course-layout{gap:35px;grid-template-columns:minmax(0,1.4fr) minmax(245px,1fr)}.v4 .inner .course-info{position:static;padding:20px}.course-info dl{grid-template-columns:1fr;gap:0}.course-info dt{margin-top:14px}.centre-page .interior-layout{gap:40px}.practical-grid{gap:35px}}
+@media(max-width:600px){.v4 .inner .page-hero{grid-template-columns:1fr;padding:20px 0 28px;gap:17px}.v4 .inner .page-hero>.breadcrumb{margin-bottom:3px}.hero-intro{grid-column:1;display:grid;grid-template-columns:minmax(0,1fr) 65px;gap:15px;align-items:center}.v4 .hero-intro .hero-drawing{grid-column:2;grid-row:1;width:65px;height:60px;margin:0}.v4 .inner .hero-intro .lead{grid-column:1;grid-row:1;font-size:14px}.v4 .inner .course-hero h1{font-size:35px}.v4 .inner .course-hero .lead{font-size:14px}.v4 .course-hero .course-kicker{font-size:10px;gap:12px}.course-kicker img{width:44px;height:35px}.course-layout{grid-template-columns:1fr;padding:28px 0 32px;gap:28px}.v4 .course-layout .cms-body li{font-size:14px;padding:6px 0}.v4 .inner .course-info h2{font-size:26px}.course-info dl{grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:14px}.course-info dt{margin:0}.course-info dd{font-size:12px}.v4 .cms-body summary{font-size:13px}.back-to-courses{font-size:10px;gap:15px}.centre-page .interior-layout{grid-template-columns:1fr;gap:20px}.centre-page .interior-art{padding:5px 0 10px;gap:10px}.centre-page .interior-art img{width:180px;max-height:130px}.practical-grid{grid-template-columns:1fr;gap:22px}.v4 .resource-row{display:block;padding-top:20px}.v4 .resource-row .cta{margin-top:20px}.v4 main.legal-page{padding:20px 5% 30px}.v4 .inner.legal-page>h1{font-size:35px;padding-bottom:25px;margin-bottom:25px}.v4 .legal-page>section h2{font-size:26px}.v4 .registration.inner{padding-top:0}.v4 .registration .form-layout{gap:25px}.v4 .registration .aside h2{font-size:26px}}
+@media(max-width:360px){.v4 .inner .course-hero h1,.v4 .inner.legal-page>h1{font-size:33px}.back-to-courses{flex-wrap:wrap}}
+@media print{.v4 .course-info{position:static!important}.course-layout{display:block}.v4 .course-info{margin-top:25px}.v4 .topbar{position:static}}
+
+/* Descriptor and wordmark share their final baseline; the symbol stays centered. */
+.v4 .brand{align-items:last baseline}
+.v4 .brand span{margin:0;align-self:last baseline}
+.v4 .brand-symbol{align-self:center}
