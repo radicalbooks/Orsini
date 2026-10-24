@@ -13,5 +13,34 @@
   "gift_book_title": "No hay atajos",
   "gift_book_author": "Jane McAlevey",
   "gift_book_publisher": "Verso Libros",
-  "gift_book_cover": "https://cdn.shopify.com/s/files/1/0561/7955/6481/files/cubiertasnohayatajosimprenta.jpg?v=1729758444"
+  "gift_book_cover": "https://cdn.shopify.com/s/files/1/0561/7955/6481/files/cubiertasnohayatajosimprenta.jpg?v=1729758444",
+  "team_intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "team_is_demo": true,
+  "faculty": [
+    {
+      "name": "Lorem Ipsum",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "photo": ""
+    },
+    {
+      "name": "Dolor Sit",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "photo": ""
+    },
+    {
+      "name": "Amet Consectetur",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "photo": ""
+    },
+    {
+      "name": "Adipiscing Elit",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "photo": ""
+    }
+  ],
+  "coordinator": {
+    "name": "Sed Eiusmod",
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "photo": ""
+  }
 }

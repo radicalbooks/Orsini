@@ -32,6 +32,32 @@ content:
       - name: body
         label: Text del centre
         type: rich-text
+      - name: academic_council_intro
+        label: Consell acadèmic — Frase de presentació
+        type: text
+      - name: academic_council_body
+        label: Consell acadèmic — Membres i presentació
+        type: rich-text
+      - name: academic_council_is_demo
+        label: Consell acadèmic — Contingut de prova
+        type: boolean
+      - name: academic_council_members
+        label: Consell acadèmic — Membres
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.name}"
+        fields:
+          - name: name
+            label: Nom
+            type: string
+          - name: bio
+            label: Breu presentació
+            type: text
+          - name: photo
+            label: Fotografia
+            type: image
   - name: participa
     label: Informació pràctica
     type: file
@@ -87,6 +113,45 @@ content:
       - name: body
         label: Contingut del curs
         type: rich-text
+      - name: team_intro
+        label: Equip docent — Frase de presentació
+        type: text
+      - name: team_is_demo
+        label: Equip docent — Contingut de prova
+        type: boolean
+        description: Desactiva-ho quan hagis substituït els noms, els textos i les fotografies de mostra.
+      - name: faculty
+        label: Professorat proposat
+        type: object
+        list:
+          min: 4
+          max: 4
+          collapsible:
+            collapsed: true
+            summary: "{fields.name}"
+        fields:
+          - name: name
+            label: Nom
+            type: string
+          - name: bio
+            label: Breu presentació
+            type: text
+          - name: photo
+            label: Fotografia
+            type: image
+      - name: coordinator
+        label: Coordinació proposada
+        type: object
+        fields:
+          - name: name
+            label: Nom
+            type: string
+          - name: bio
+            label: Breu presentació
+            type: text
+          - name: photo
+            label: Fotografia
+            type: image
       - name: gift_book_title
         label: Llibre de regal — Títol
         type: string

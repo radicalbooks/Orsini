@@ -28,10 +28,28 @@ function metadata(html,file,title,description,{index=true,type='WebPage',extra=[
  const breadcrumb=file==='index.html'?[]:[{'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Inici',item:base},...(file.startsWith('curs-')?[{'@type':'ListItem',position:2,name:'Cursos',item:base+'programa.html'}]:[]),{'@type':'ListItem',position:file.startsWith('curs-')?3:2,name:title.replace(' · Orsini',''),item:url}]}];
  const tags=`<title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${esc(url)}"><meta name="robots" content="${index?'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1':'noindex,follow'}"><meta name="theme-color" content="#edf23d"><meta property="og:site_name" content="Orsini"><meta property="og:locale" content="ca_ES"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${esc(url)}"><meta property="og:image" content="${base}assets/orsini-social.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Orsini · Centre d’estudis radicals. Aprendre per pensar i actuar."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${base}assets/orsini-social.png"><link rel="sitemap" type="application/xml" href="${base}sitemap.xml"><link rel="preload" href="fonts/SourceSerif4-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin><script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@graph':[org,site,page,...breadcrumb,...extra]}).replaceAll('<','\\u003c')}</script>`;
  html=html.replace('</head>',tags+'</head>');
- html=html.replace(/cms-content\.js\?v=\d+/g,'cms-content.js?v=9').replace(/editorial\.css\?v=\d+/g,'editorial.css?v=9');
+ html=html.replace(/cms-content\.js\?v=\d+/g,'cms-content.js?v=9').replace(/editorial\.css\?v=\d+/g,'editorial.css?v=10');
  if(html.includes('class="brand"'))html=replaceElement(html,/<(strong)>/i,esc(web.brand||'orsini'));
  if(html.includes('data-site-footer'))html=replaceElement(html,/<(p)\b[^>]*data-site-footer[^>]*>/i,esc(web.footer||'Orsini · Un projecte vinculat a Radical Books Coop.'));
  if(index){pages.push({file,url});html=html.replace(/<script\b[^>]*src="cms-content\.js[^"]*"[^>]*><\/script>/g,'');}return html;
+}
+function personCard(person,i,demo,level='h4'){
+ if(!person||typeof person.name!=='string'||!person.name.trim())return '';
+ const photo=typeof person.photo==='string'?person.photo:'';
+ const safe=/^(https:\/\/|\/Orsini\/media\/|media\/|\.\/media\/)/.test(photo);
+ let portrait=safe?'<img class="person-photo" src="'+esc(photo)+'" width="96" height="96" loading="lazy" decoding="async" alt="'+esc(person.name)+'">':demo?'<span class="person-photo demo-portrait portrait-'+(i%6)+'" role="img" aria-label="Retrat fictici de mostra"></span>':'<span class="person-photo person-initials" aria-hidden="true">'+esc(person.name.split(/\s+/).slice(0,2).map(n=>n[0]).join(''))+'</span>';
+ return '<article class="person-card">'+portrait+'<div><'+level+' class="person-name">'+esc(person.name)+'</'+level+'><p>'+esc(person.bio||'')+'</p></div></article>';
+}
+function courseTeam(d){
+ const demo=d.team_is_demo===true;
+ const people=(Array.isArray(d.faculty)?d.faculty:[]).slice(0,4).map((p,i)=>personCard(p,i,demo)).join('');
+ const coordinator=personCard(d.coordinator,4,demo);
+ return '<h2 id="course-team-title">Professorat i coordinació</h2><p class="people-intro"'+(demo?' data-nosnippet':'')+'>'+esc(d.team_intro||'Una proposta de quatre veus docents i una coordinació per posar en comú lectures i preguntes.')+'</p><details class="people-disclosure"><summary>Veure el professorat proposat i la coordinació</summary><div class="people-content"'+(demo?' data-nosnippet':'')+'><p class="people-status">'+(demo?'Contingut de prova · Noms i retrats ficticis':'Proposta pendent de confirmació')+'</p><h3>Professorat proposat</h3><div class="people-cards">'+(people||'<p>Professorat pendent de concretar.</p>')+'</div><div class="coordinator-block"><h3>Coordinació proposada</h3>'+ (coordinator||'<p>Pendent de concretar.</p>')+'</div></div></details>';
+}
+function academicCouncil(d){
+ const demo=d.academic_council_is_demo===true;
+ const people=(Array.isArray(d.academic_council_members)?d.academic_council_members:[]).map((p,i)=>personCard(p,i,demo,'h3')).join('');
+ return '<section class="people-panel council-panel" aria-labelledby="consell-academic"><h2 id="consell-academic">Consell acadèmic</h2><p class="people-intro"'+(demo?' data-nosnippet':'')+'>'+esc(d.academic_council_intro||'Un espai de diàleg i orientació per donar continuïtat al projecte formatiu.')+'</p><details class="people-disclosure"><summary>Veure la composició del consell acadèmic</summary><div class="people-content"'+(demo?' data-nosnippet':'')+'>'+(demo?'<p class="people-status">Contingut de prova · Noms i retrats ficticis</p>':'')+'<div class="council-description">'+rich(d.academic_council_body||'Composició pendent de confirmació.')+'</div><div class="people-cards">'+people+'</div></div></details></section>';
 }
 const web=await json('content/web.json');
 const order=['feminisme-antipunitiu','escriptura-politica','imaginacio-i-organitzacio','al-marge-de-la-historia','organitzar-la-classe'];
@@ -51,7 +69,8 @@ for(const name of ['centre','participa','privacitat','cookies','avis-legal']){
  if(d.intro)html=byClass(html,'lead',esc(d.intro));
  let body=rich(d.body);
  if(name==='centre'){
- const headings=[];const used=new Set(['contingut']);body=body.replace(/<h([23])(?:\s[^>]*)?>(.*?)<\/h\1>/g,(m,n,title)=>{let id=text(title)==='Per què Orsini?'?'nom-orsini':text(title).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');const stem=id;let k=2;while(used.has(id))id=stem+'-'+k++;used.add(id);headings.push({id,title:text(title)});return `<h${n} id="${id}">${title}</h${n}>`});html=byClass(html,'centre-index','<a href="#contingut">El projecte</a>'+headings.map(h=>`<a href="#${h.id}">${esc(h.title)}</a>`).join(''));
+ body+=academicCouncil(d);
+ const headings=[];const used=new Set(['contingut']);body=body.replace(/<h(2)(?:\s[^>]*)?>(.*?)<\/h\1>/g,(m,n,title)=>{let id=text(title)==='Per què Orsini?'?'nom-orsini':text(title).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');const stem=id;let k=2;while(used.has(id))id=stem+'-'+k++;used.add(id);headings.push({id,title:text(title)});return `<h${n} id="${id}">${title}</h${n}>`});html=byClass(html,'centre-index','<a href="#contingut">El projecte</a>'+headings.map(h=>`<a href="#${h.id}">${esc(h.title)}</a>`).join(''));
  }
  if(name==='participa'&&!body.includes('class="practical-grid"')){body='<div class="practical-grid">'+body.split(/(?=<h2\b)/).filter(Boolean).map(s=>'<section>'+s+'</section>').join('')+'</div><a class="cta" href="matricula.html">Formulari de matrícula de prova ↗</a>';}
  if(name==='participa'&&!body.includes('href="matricula.html"'))body+='<a class="cta" href="matricula.html">Formulari de matrícula de prova ↗</a>';
@@ -62,7 +81,7 @@ for(const name of ['centre','participa','privacitat','cookies','avis-legal']){
 }
 const template=await read('scripts/templates/curs.html');
 for(const d of courses){
- let html=template.replace('Carregant...',esc(d.title));html=byClass(html,'lead',esc(d.introduction||d.summary));html=byId(html,'dynamic-category',esc(d.category));html=byId(html,'dynamic-status',esc(d.status||'En preparació'));html=byId(html,'dynamic-body',rich(d.body));html=byId(html,'dynamic-practical',rich(d.practical));html=html.replace('src="icons8-book.webp"',`src="icons8-${d.illustration||'book'}.webp"`).replace('id="dynamic-cta" class="cta" href="matricula.html"',`id="dynamic-cta" class="cta" href="matricula.html?course=${d.slug}"`);
+ let html=template.replace('Carregant...',esc(d.title));html=byClass(html,'lead',esc(d.introduction||d.summary));html=byId(html,'dynamic-category',esc(d.category));html=byId(html,'dynamic-status',esc(d.status||'En preparació'));html=byId(html,'dynamic-body',rich(d.body));html=byId(html,'course-team',courseTeam(d));html=byId(html,'dynamic-practical',rich(d.practical));html=html.replace('src="icons8-book.webp"',`src="icons8-${d.illustration||'book'}.webp"`).replace('id="dynamic-cta" class="cta" href="matricula.html"',`id="dynamic-cta" class="cta" href="matricula.html?course=${d.slug}"`);
  if(d.gift_book_title&&/^(https:\/\/|\/Orsini\/media\/|\.?\/media\/|media\/)/.test(d.gift_book_cover||'')){html=html.replace('aria-label="Llibre associat de regal" hidden','aria-label="Llibre associat de regal"');for(const [id,value]of [['gift-title',d.gift_book_title],['gift-author',d.gift_book_author],['gift-publisher',d.gift_book_publisher]])html=byId(html,id,esc(value));html=html.replace('id="gift-cover" alt=""',`id="gift-cover" src="${esc(d.gift_book_cover)}" alt="Coberta de ${esc(d.gift_book_title)}"`);}
  if(d.image&&/^(\/Orsini\/media\/|media\/|\.\/media\/)/.test(d.image))html=html.replace('id="dynamic-image" alt="" hidden',`id="dynamic-image" src="${esc(d.image)}" alt="${esc(d.title)}" loading="lazy" decoding="async"`);
  html=html.replace('<body ',`<body data-course-id="${d.slug}" `);

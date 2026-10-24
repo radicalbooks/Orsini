@@ -13,5 +13,34 @@
   "gift_book_title": "Alternatives a la presó?",
   "gift_book_author": "Michel Foucault",
   "gift_book_publisher": "Manifest Llibres",
-  "gift_book_cover": "https://cdn.shopify.com/s/files/1/0720/3035/5770/files/alternatives.jpg?v=1683147155"
+  "gift_book_cover": "https://cdn.shopify.com/s/files/1/0720/3035/5770/files/alternatives.jpg?v=1683147155",
+  "team_intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "team_is_demo": true,
+  "faculty": [
+    {
+      "name": "Lorem Ipsum",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "photo": ""
+    },
+    {
+      "name": "Dolor Sit",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "photo": ""
+    },
+    {
+      "name": "Amet Consectetur",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "photo": ""
+    },
+    {
+      "name": "Adipiscing Elit",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "photo": ""
+    }
+  ],
+  "coordinator": {
+    "name": "Sed Eiusmod",
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "photo": ""
+  }
 }

@@ -13,5 +13,34 @@
   "gift_book_title": "Los orígenes de la literatura japonesa moderna",
   "gift_book_author": "Kojin Karatani",
   "gift_book_publisher": "Verso Libros",
-  "gift_book_cover": "https://cdn.shopify.com/s/files/1/0561/7955/6481/files/japon6.jpg?v=1776671996"
+  "gift_book_cover": "https://cdn.shopify.com/s/files/1/0561/7955/6481/files/japon6.jpg?v=1776671996",
+  "team_intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "team_is_demo": true,
+  "faculty": [
+    {
+      "name": "Lorem Ipsum",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "photo": ""
+    },
+    {
+      "name": "Dolor Sit",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "photo": ""
+    },
+    {
+      "name": "Amet Consectetur",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "photo": ""
+    },
+    {
+      "name": "Adipiscing Elit",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "photo": ""
+    }
+  ],
+  "coordinator": {
+    "name": "Sed Eiusmod",
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "photo": ""
+  }
 }

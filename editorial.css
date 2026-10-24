@@ -252,3 +252,39 @@ body h1,body h2,body h3{font-family:var(--serif);font-weight:350;letter-spacing:
 /* Center the symbol on the wordmark rather than on the descriptor's baseline. */
 .v4.proposal.icons8 .brand .brand-symbol{transform:translateY(3.5px)}
 @media(max-width:600px){.v4.proposal.icons8 .brand .brand-symbol{transform:translateY(2px)}}
+
+/* Shared, native disclosures for course teams and the academic council. */
+.v4 .people-panel{margin-top:40px;padding-top:28px;border-top:1px solid var(--line)}
+.v4 .people-panel h2{font-size:28px;line-height:1.3;margin:0 0 14px}
+.v4 .people-panel .people-intro{max-width:58ch;margin:0;font-size:14px;line-height:1.85;color:var(--muted)}
+.v4 .people-panel details{margin:20px 0 0;padding:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.v4 .people-panel summary{display:flex;justify-content:space-between;align-items:center;gap:20px;list-style:none;padding:18px 0;cursor:pointer;font-size:13px;line-height:1.7;font-weight:500}
+.v4 .people-panel summary::-webkit-details-marker{display:none}
+.v4 .people-panel summary::after{display:block;content:'+';font:300 22px/1 OrsiniInter,Arial,sans-serif;flex:none;color:var(--ink)}
+.v4 .people-panel details[open]>summary{margin-bottom:0}
+.v4 .people-panel details[open]>summary::after{content:'−'}
+.v4 .people-panel summary:focus-visible{outline:2px solid var(--ink);outline-offset:5px}
+.v4 .people-panel .people-content{padding:4px 0 22px}
+.v4 .people-panel .people-content p{font-size:13px;line-height:1.85;margin:0 0 12px}
+.v4 .people-panel .people-content>:last-child{margin-bottom:0}
+.v4 .people-panel .people-status{font-size:10px;letter-spacing:.025em;color:var(--muted);margin-bottom:22px}
+.v4 .people-panel .people-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:30px}
+.v4 .people-panel .people-grid h3{font-family:OrsiniInter,Arial,sans-serif;font-size:11px;line-height:1.6;font-weight:500;margin:0 0 10px}
+.v4 .people-panel .people-names{padding:0 0 0 19px;margin:0;list-style:decimal}
+.v4 .people-panel .people-names li{font-size:14px;line-height:1.75;padding:4px 0;border:0}
+@media(max-width:600px){.v4 .people-panel{margin-top:30px;padding-top:24px}.v4 .people-panel h2{font-size:26px}.v4 .people-panel .people-intro{font-size:13px}.v4 .people-panel summary{font-size:12px;padding:16px 0;gap:16px}.v4 .people-panel .people-grid{grid-template-columns:1fr;gap:18px}}
+
+/* Replaceable photo cards, shared by the two disclosures. */
+.v4 .people-panel .people-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 24px;margin-top:16px}
+.v4 .people-panel .person-card{display:grid;grid-template-columns:76px minmax(0,1fr);gap:15px;align-items:start;margin:0;padding:0;border:0;background:none}
+.v4 .people-panel .person-photo{display:block;width:76px;height:76px;aspect-ratio:1;object-fit:cover;background-color:#e7e8dd;filter:grayscale(1);border-radius:0}
+.v4 .people-panel .demo-portrait{background-image:url('assets/people-demo.webp');background-repeat:no-repeat;background-size:300% 200%}
+.portrait-0{background-position:0 0}.portrait-1{background-position:50% 0}.portrait-2{background-position:100% 0}.portrait-3{background-position:0 100%}.portrait-4{background-position:50% 100%}.portrait-5{background-position:100% 100%}
+.v4 .people-panel .person-initials{display:grid;place-items:center;font:24px/1 var(--serif);color:var(--muted)}
+.v4 .people-panel .person-card .person-name{font:350 20px/1.3 var(--serif);margin:0 0 8px;overflow-wrap:anywhere}
+.v4 .people-panel .person-card p{font-size:11px;line-height:1.8;color:var(--muted);margin:0}
+.v4 .people-panel .people-content h3{font:500 11px/1.6 OrsiniInter,Arial,sans-serif;margin:0 0 12px}
+.v4 .people-panel .coordinator-block{margin-top:26px;padding-top:24px;border-top:1px solid var(--line)}
+.v4 .people-panel .coordinator-block .person-card{max-width:410px}
+.v4 .people-panel .council-description{margin-bottom:24px}
+@media(max-width:700px){.v4 .people-panel .people-cards{grid-template-columns:1fr;gap:23px}.v4 .people-panel .person-card{grid-template-columns:70px minmax(0,1fr);gap:15px}.v4 .people-panel .person-photo{width:70px;height:70px}.v4 .people-panel .person-card .person-name{font-size:20px}.v4 .people-panel .person-card p{font-size:12px}}
