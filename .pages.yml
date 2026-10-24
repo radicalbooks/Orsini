@@ -47,18 +47,6 @@ content:
       - name: body
         label: Informació pràctica
         type: rich-text
-  - name: arxiu
-    label: Arxiu
-    type: file
-    path: content/arxiu.json
-    format: json
-    fields:
-      - name: title
-        type: string
-      - name: intro
-        type: text
-      - name: body
-        type: rich-text
   - name: cursos
     label: Cursos
     type: collection
@@ -105,35 +93,6 @@ content:
       - name: image
         label: Imatge
         type: image
-  - name: articles
-    label: Articles i recursos
-    type: collection
-    path: content/articles
-    format: json
-    filename: "{primary}.json"
-    view:
-      primary: slug
-      fields: [title, date, published]
-    fields:
-      - name: title
-        label: Títol
-        type: string
-        required: true
-      - name: date
-        label: Data
-        type: date
-      - name: summary
-        label: Resum
-        type: text
-      - name: body
-        label: Article
-        type: rich-text
-      - name: image
-        label: Imatge
-        type: image
-      - name: published
-        label: Publicat
-        type: boolean
   - name: web
     label: Textos generals
     type: file
