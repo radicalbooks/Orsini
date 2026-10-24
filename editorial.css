@@ -142,3 +142,40 @@ body h1,body h2,body h3{font-family:var(--serif);font-weight:350;letter-spacing:
 .v4 .brand{align-items:last baseline}
 .v4 .brand span{margin:0;align-self:last baseline}
 .v4 .brand-symbol{align-self:center}
+
+
+/* Match the approved original course sheets and practical content. */
+.v4 .inner .course-hero{gap:14px 60px;padding-top:20px;padding-bottom:35px}
+.v4 .inner .course-hero .course-kicker{gap:18px}
+.v4 .inner .course-hero .course-kicker .status-pill{font-family:OrsiniInter,Arial,sans-serif;border:1px solid var(--line);border-radius:40px;background:#edf0df;padding:5px 11px;font-size:10px;font-weight:400;line-height:1.4;white-space:nowrap}
+.v4 .inner .course-hero h1{line-height:1.2}
+.course-layout{gap:8vw;grid-template-columns:minmax(0,1.65fr) minmax(260px,1fr);padding-top:40px;padding-bottom:45px}
+.v4 .course-layout .cms-body h2{font-size:28px;line-height:1.3}
+.v4 .course-layout .cms-body>h2:first-child{margin-top:0}
+.v4 .course-layout .cms-body li{padding:8px 0;line-height:1.65}
+.v4 .inner .course-info{top:105px;padding:24px}
+.v4 .inner .course-info h2{font-size:26px;margin:0}
+.course-info dl{grid-template-columns:1fr 1fr;gap:17px 20px;margin:20px 0}
+.course-info dd{margin:3px 0 0}
+.v4 .inner .course-info .notice{border-top:1px solid var(--line);padding-top:15px;line-height:1.7;margin:0 0 18px}
+.v4 .course-info .cta{margin:0;font-size:11px;padding-left:15px;padding-right:15px}
+.v4 .course-layout .cms-body summary{display:list-item;list-style:revert;font-weight:500}
+.v4 .course-layout .cms-body summary::after{display:none}
+.v4 .back-to-courses{padding-bottom:5px}
+.v4 .back-to-courses>a:last-child:not(:first-child){display:none}
+.v4 .cms-body .name-drawing{display:block;width:145px;height:145px;object-fit:contain;margin:20px auto;mix-blend-mode:multiply}
+.v4 .cms-body .details-stack{border-top:1px solid var(--line);margin-top:30px}
+.v4 .cms-body .details-stack details{margin-top:0;border-top:0}
+.key-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:25px;margin:0 0 35px;padding:22px;background:#eff1e4}
+.key-facts dt{font-size:11px;line-height:1.7;color:var(--muted);margin-bottom:7px}
+.key-facts dd{font-size:16px;line-height:1.5;margin:0}
+.v4 .practical-grid p{font-size:14px}
+.v4 .compact-faq{border-top:1px solid var(--line);margin-top:35px;padding-top:28px}
+.v4 .compact-faq>h2{margin-top:0}
+.v4 .compact-faq details{margin:0;border-top:0}
+.v4 .compact-faq details p{font-size:14px}
+.v4 .arxiu-page .empty-state h2{font-size:32px;margin-top:20px}
+.file-type{font-size:9px;border-left:1px solid #ffffff55;padding-left:12px}
+@media(max-width:1000px){.course-layout{gap:35px}.v4 .inner .course-info{padding:20px}}
+@media(max-width:900px){.key-facts{grid-template-columns:1fr 1fr}.v4 .inner .course-info{position:static}}
+@media(max-width:600px){.v4 .inner .course-hero{gap:15px;padding-top:15px;padding-bottom:25px}.v4 .inner .course-hero .course-kicker{gap:10px;flex-wrap:wrap;font-size:10px}.v4 .inner .course-hero .course-kicker .status-pill{font-size:9px}.course-layout{grid-template-columns:1fr;gap:28px;padding-top:28px;padding-bottom:32px}.v4 .course-layout .cms-body h2{font-size:27px}.v4 .course-layout .cms-body li{font-size:14px}.v4 .inner .course-info h2{font-size:25px}.course-info dl{gap:18px 15px}.course-info dd{font-size:12px}.v4 .cms-body summary{font-size:13px}.key-facts{padding:18px;gap:22px 18px;margin-bottom:25px}.key-facts dt{font-size:10px}.key-facts dd{font-size:13px}.v4 .practical-grid p{font-size:13px}.v4 .compact-faq{margin-top:26px;padding-top:22px}.v4 .compact-faq details p{font-size:13px}.v4 .arxiu-page .empty-state h2{font-size:29px}}

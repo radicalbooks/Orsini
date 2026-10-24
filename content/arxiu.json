@@ -1,5 +1,5 @@
 {
   "title": "Arxiu obert",
-  "intro": "Bibliografies, materials i recursos dels cursos d’Orsini.",
-  "body": "<h2>En construcció</h2><p>Aquest espai reunirà lectures, bibliografies i altres materials de suport dels cursos. Encara no hi ha documents publicats en aquesta secció.</p>"
+  "intro": "Bibliografies, textos i eines per continuar les discussions més enllà de cada curs.",
+  "body": "<div class=\"empty-state\"><span class=\"status-pill\">Properament</span><h2>L’arxiu creixerà amb els cursos.</h2><p>Encara no hi ha materials publicats. Hi compartirem bibliografies comentades, articles, converses i recursos pedagògics, amb els permisos necessaris.</p></div>"
 }
