@@ -6,7 +6,7 @@ on:
   # The repository currently uses GitHub's branch-based Pages deployment.
   # Run afterwards so the CMS-derived static HTML is the final deployment.
   workflow_run:
-    workflows: ["pages build and deployment"]
+    workflows: ["pages build and deployment", "pages-build-deployment"]
     types: [completed]
     branches: [main]
   workflow_dispatch:
