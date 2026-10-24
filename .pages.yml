@@ -145,3 +145,39 @@ content:
       - name: test_notice
         label: Avís de matrícula de prova
         type: text
+  - name: privacitat
+    label: Política de privacitat
+    type: file
+    path: content/privacitat.json
+    format: json
+    fields:
+      - name: title
+        label: Títol
+        type: string
+      - name: body
+        label: Contingut
+        type: rich-text
+  - name: cookies
+    label: Política de cookies
+    type: file
+    path: content/cookies.json
+    format: json
+    fields:
+      - name: title
+        label: Títol
+        type: string
+      - name: body
+        label: Contingut
+        type: rich-text
+  - name: avis-legal
+    label: Avís legal
+    type: file
+    path: content/avis-legal.json
+    format: json
+    fields:
+      - name: title
+        label: Títol
+        type: string
+      - name: body
+        label: Contingut
+        type: rich-text
