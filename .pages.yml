@@ -64,11 +64,15 @@ content:
     type: collection
     path: content/cursos
     format: json
-    filename: "{primary}.json"
+    filename: "{fields.slug}.json"
     view:
       primary: title
       fields: [title, category, active]
     fields:
+      - name: slug
+        label: Identificador URL (sense espais ni accents)
+        type: string
+        required: true
       - name: title
         label: Títol
         type: string
@@ -117,3 +121,27 @@ content:
       - name: published
         label: Publicat
         type: boolean
+  - name: web
+    label: Textos generals
+    type: file
+    path: content/web.json
+    format: json
+    fields:
+      - name: brand
+        label: Nom de la web
+        type: string
+      - name: subtitle
+        label: Subtítol
+        type: string
+      - name: footer
+        label: Peu de pàgina
+        type: text
+      - name: program_intro
+        label: Introducció al programa
+        type: text
+      - name: course_note
+        label: Nota sobre els cursos
+        type: text
+      - name: test_notice
+        label: Avís de matrícula de prova
+        type: text
