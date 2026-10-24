@@ -64,9 +64,9 @@ content:
     type: collection
     path: content/cursos
     format: json
-    filename: "{fields.slug}.json"
+    filename: "{primary}.json"
     view:
-      primary: title
+      primary: slug
       fields: [title, category, active]
     fields:
       - name: slug
@@ -99,7 +99,7 @@ content:
     format: json
     filename: "{primary}.json"
     view:
-      primary: title
+      primary: slug
       fields: [title, date, published]
     fields:
       - name: title
