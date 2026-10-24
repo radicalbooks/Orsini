@@ -1,0 +1,219 @@
+@charset "utf-8";
+
+.proposal-bar { min-height: 44px; padding: 9px 5%; display: flex; justify-content: space-between; gap: 20px; background: rgb(32, 35, 30); color: rgb(247, 247, 239); font-size: 10px; align-items: center; line-height: 1.5; }
+
+.proposal-bar a { text-decoration: none; }
+
+.proposal-bar a:hover { text-decoration: underline; }
+
+.proposal-bar span { text-transform: uppercase; letter-spacing: 1px; }
+
+.proposal .home-intro { padding-top: 20px; padding-bottom: 22px; }
+
+.proposal .intro-photo { max-width: 440px; justify-self: center; }
+
+.proposal .intro-photo img { max-width: 100%; width: 100%; object-fit: contain !important; aspect-ratio: auto !important; height: 210px !important; }
+
+.proposal .line-illustration figcaption { font-size: 9px; line-height: 1.5; text-align: center; margin-top: 3px; }
+
+.proposal .line-illustration figcaption a { color: var(--muted); }
+
+.proposal .learning-banner img { object-fit: contain; aspect-ratio: auto; max-height: 350px; width: 100%; }
+
+.proposal.open-doodles .intro-photo { mix-blend-mode: multiply; }
+
+.proposal .topbar { top: 0px; }
+
+.proposal.icons8 .intro-photo { max-width: 250px; }
+
+.comparison { background: rgb(247, 247, 239); }
+
+.comparison-wrap { max-width: 1240px; padding: 0px 5%; margin: auto; }
+
+.comparison-wrap > header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgb(198, 200, 185); padding: 24px 0px; }
+
+.comparison-brand { font: 350 42px/1 var(--serif); text-decoration: none; }
+
+.comparison-wrap > header > span { font-size: 9px; letter-spacing: 1.6px; }
+
+.comparison-intro { padding: 44px 0px 30px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 10px 65px; align-items: end; }
+
+.comparison-intro .eyebrow { grid-column: 1 / -1; font-size: 9px; letter-spacing: 1.5px; font-weight: 500; }
+
+.comparison-intro h1 { font: 300 clamp(38px,5vw,62px)/1.17 var(--serif); letter-spacing: 0px; margin: 7px 0px 0px; }
+
+.comparison-intro p { font-size: 14px; line-height: 1.8; max-width: 390px; margin: 0px 0px 6px; }
+
+.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding: 15px 0px 35px; }
+
+.choice { border: 1px solid rgb(198, 200, 185); text-decoration: none; display: block; transition: border-color 160ms; }
+
+.choice:hover { border-color: rgb(32, 35, 30); }
+
+.choice-art { background: rgb(237, 242, 61); height: 245px; display: flex; align-items: center; justify-content: center; padding: 20px; }
+
+.choice-art img { width: 100%; height: 100%; object-fit: contain; }
+
+.choice.open-doodles .choice-art img { mix-blend-mode: multiply; }
+
+.choice.icons8 .choice-art { background: rgb(233, 236, 220); }
+
+.choice.icons8 .choice-art img { width: 210px; }
+
+.choice-copy { padding: 24px; }
+
+.choice-copy > span { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+
+.choice h2 { display: flex; justify-content: space-between; font: 350 35px/1.2 var(--serif); margin: 10px 0px; }
+
+.choice h2 b { font: 300 24px / 1.3 Inter, sans-serif; }
+
+.choice p { font-size: 12px; line-height: 1.8; max-width: 420px; min-height: 65px; }
+
+.choice strong { display: inline-block; font-size: 11px; font-weight: 500; border-bottom: 1px solid; margin-top: 12px; padding-bottom: 4px; }
+
+.comparison-wrap > footer { border-top: 1px solid rgb(198, 200, 185); padding: 20px 0px 30px; font-size: 10px; line-height: 1.8; }
+
+.comparison-wrap > footer p { margin: 3px 0px; }
+
+@media (max-width: 600px) {
+  .proposal-bar { gap: 10px; font-size: 9px; flex-wrap: wrap; padding: 8px 5%; }
+  .proposal-bar span { display: none; }
+  .proposal .intro-photo { display: block; width: 100%; max-width: 200px; margin: 8px auto 0px; }
+  .proposal .intro-photo img { height: 115px !important; }
+  .proposal .intro-photo figcaption { font-size: 8px; }
+  .proposal .home-intro { gap: 10px; }
+  .proposal .mobile-study-photo { display: none; }
+  .comparison-intro { display: block; padding: 30px 0px 15px; }
+  .comparison-intro h1 { margin: 15px 0px 20px; }
+  .comparison-intro p { font-size: 13px; }
+  .choices { grid-template-columns: 1fr; gap: 20px; }
+  .choice-art { height: 210px; }
+  .choice p { min-height: 0px; }
+  .choice-copy { padding: 20px; }
+  .comparison-wrap > header > span { font-size: 8px; letter-spacing: 0.7px; }
+  .comparison-brand { font-size: 35px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .choice { transition: none; }
+}
+
+.proposal.icons8 .intro-photo { max-width: 410px; width: 100%; }
+
+.scene-objects { position: relative; width: 100%; height: 220px; }
+
+.proposal.icons8 .scene-objects img { position: absolute; object-fit: contain; width: auto; max-width: none; aspect-ratio: auto !important; }
+
+.proposal.icons8 .scene-objects .scene-book { width: 205px; left: 70px; top: 0px; transform: rotate(-11deg); height: 205px !important; }
+
+.proposal.icons8 .scene-objects .scene-glasses { width: 140px; left: 205px; top: 140px; transform: rotate(12deg); height: 65px !important; }
+
+.proposal.icons8 .scene-objects .scene-pencil { width: 155px; left: 15px; top: 176px; transform: rotate(-8deg); height: 38px !important; }
+
+.section-drawing { display: block; width: 82px; height: 64px; object-fit: contain; margin: 0px 0px 15px; }
+
+.hero-drawing { display: block; width: 105px; height: 85px; object-fit: contain; margin: 0px 0px 16px; }
+
+.course-drawing { width: 55px; height: 42px; object-fit: contain; margin-right: 5px; }
+
+.static-art { width: 130px; }
+
+.static-art .orsini-emblem { display: block; text-decoration: none; text-align: center; font-size: 9px; line-height: 1.5; }
+
+.static-art img { width: 100%; height: 110px; object-fit: contain; aspect-ratio: 1 / 1; }
+
+.static-art span { display: block; margin-top: 4px; }
+
+.name-drawing { display: block; width: 145px; height: 145px; object-fit: contain; margin: 20px auto; }
+
+.choice.icons8 .choice-art img { width: 195px; }
+
+.proposal.icons8 .centre-photo { padding: 38px; background: rgb(239, 241, 228); }
+
+.proposal.icons8 .centre-photo img { max-height: 200px; }
+
+.proposal.icons8 .line-illustration figcaption { display: none; }
+
+.proposal.icons8 .footer small { max-width: 100%; line-height: 1.8; }
+
+@media (max-width: 600px) {
+  .proposal.icons8 .intro-photo { max-width: 210px; }
+  .scene-objects { height: 112px; }
+  .proposal.icons8 .scene-objects .scene-book { width: 105px; left: 35px; top: 0px; height: 105px !important; }
+  .proposal.icons8 .scene-objects .scene-glasses { width: 70px; left: 112px; top: 76px; height: 32px !important; }
+  .proposal.icons8 .scene-objects .scene-pencil { width: 75px; left: 10px; top: 88px; height: 19px !important; }
+  .section-drawing { width: 55px; height: 38px; margin-bottom: 12px; }
+  .hero-drawing { width: 80px; height: 65px; margin-bottom: 12px; }
+  .course-drawing { width: 40px; height: 34px; }
+  .static-art { width: 105px; }
+  .static-art img { height: 90px; }
+}
+
+.proposal.icons8 .centre-photo { min-height: 240px; display: flex; align-items: center; justify-content: center; }
+
+.proposal.icons8 .centre-photo img { width: 220px; max-width: 100%; height: auto; max-height: 160px; }
+
+@media (max-width: 600px) {
+  .proposal.icons8 .centre-photo { min-height: 180px; }
+  .proposal.icons8 .centre-photo img { width: 180px; }
+}
+
+.proposal.icons8 .brand { align-items: center; gap: 14px; flex-shrink: 0; }
+
+.proposal.icons8 .brand-symbol { display: block; width: 48px; height: 48px; object-fit: contain; flex: 0 0 auto; mix-blend-mode: multiply; background: transparent; }
+
+.proposal.icons8 .brand strong { font-size: 40px; line-height: 1; letter-spacing: 0px; }
+
+.proposal.icons8 .brand span { margin-left: 2px; }
+
+@media (max-width: 600px) {
+  .proposal.icons8 .brand { display: grid; grid-template-columns: 40px auto; grid-template-rows: auto auto; gap: 2px 9px; align-items: center; }
+  .proposal.icons8 .brand-symbol { width: 40px; height: 40px; grid-area: 1 / 1 / 3; }
+  .proposal.icons8 .brand strong { grid-area: 1 / 2; font-size: 32px; line-height: 1; }
+  .proposal.icons8 .brand span { grid-area: 2 / 2; font-size: 7px; line-height: 1.2; margin: 0px; }
+  .proposal.icons8 .nav { gap: 15px; }
+}
+
+.proposal.icons8 .scene-objects img, .proposal.icons8 .section-drawing, .proposal.icons8 .hero-drawing, .proposal.icons8 .course-drawing, .proposal.icons8 .line-illustration img { mix-blend-mode: multiply; background: transparent; }
+
+.proposal.icons8 .centre-photo { background: transparent; padding: 20px 0px; }
+
+.proposal.icons8 .brand { display: grid; grid-template-columns: 48px auto; grid-template-rows: auto auto; gap: 3px 12px; align-items: center; }
+
+.proposal.icons8 .brand-symbol { grid-area: 1 / 1 / 3; width: 48px; height: 48px; }
+
+.proposal.icons8 .brand strong { grid-area: 1 / 2; line-height: 1; }
+
+.proposal.icons8 .brand span { grid-area: 2 / 2; margin: 0px; font-size: 7.7px; line-height: 1.25; white-space: nowrap; max-width: none; letter-spacing: 0px; }
+
+@media (max-width: 600px) {
+  .proposal.icons8 .brand { grid-template-columns: 40px auto; gap: 3px 9px; }
+  .proposal.icons8 .brand-symbol { width: 40px; height: 40px; }
+  .proposal.icons8 .brand strong { font-size: 32px; }
+  .proposal.icons8 .brand span { font-size: 6.2px; }
+}
+
+.proposal.icons8 .brand span { font-size: 9px; }
+
+@media (max-width: 600px) {
+  .proposal.icons8 .brand span { font-size: 8px; }
+}
+
+.proposal.icons8 .brand { display: flex; align-items: last baseline; gap: 14px; }
+
+.proposal.icons8 .brand-symbol { align-self: center; width: 48px; height: 48px; }
+
+.proposal.icons8 .brand strong { font-size: 40px; line-height: 1; }
+
+.proposal.icons8 .brand span { font-size: 9px; line-height: 1.3; white-space: normal; margin: 0px; max-width: 90px; }
+
+@media (max-width: 600px) {
+  .proposal.icons8 .brand { gap: 9px; }
+  .proposal.icons8 .brand-symbol { width: 36px; height: 36px; }
+  .proposal.icons8 .brand strong { font-size: 32px; }
+  .proposal.icons8 .brand span { font-size: 8px; max-width: 65px; }
+}
+/* Nou símbol: centrat verticalment sense alterar la resta de la pàgina */
+.proposal.icons8 .brand { align-items: center; }
+.proposal.icons8 .brand-symbol { align-self: center; object-fit: contain; }
