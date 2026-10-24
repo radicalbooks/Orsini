@@ -1,0 +1,119 @@
+media:
+  input: media
+  output: /Orsini/media
+content:
+  - name: inici
+    label: Portada
+    type: file
+    path: content/inici.json
+    format: json
+    fields:
+      - name: titular
+        label: Titular principal
+        type: string
+      - name: introduccio
+        label: Text de presentació
+        type: text
+      - name: nota_cursos
+        label: Nota sobre els cursos
+        type: text
+  - name: centre
+    label: El centre
+    type: file
+    path: content/centre.json
+    format: json
+    fields:
+      - name: title
+        label: Títol
+        type: string
+      - name: intro
+        label: Introducció
+        type: text
+      - name: body
+        label: Text del centre
+        type: rich-text
+  - name: participa
+    label: Informació pràctica
+    type: file
+    path: content/participa.json
+    format: json
+    fields:
+      - name: title
+        label: Títol
+        type: string
+      - name: intro
+        label: Introducció
+        type: text
+      - name: body
+        label: Informació pràctica
+        type: rich-text
+  - name: arxiu
+    label: Arxiu
+    type: file
+    path: content/arxiu.json
+    format: json
+    fields:
+      - name: title
+        type: string
+      - name: intro
+        type: text
+      - name: body
+        type: rich-text
+  - name: cursos
+    label: Cursos
+    type: collection
+    path: content/cursos
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: title
+      fields: [title, category, active]
+    fields:
+      - name: title
+        label: Títol
+        type: string
+        required: true
+      - name: category
+        label: Àmbit
+        type: string
+      - name: summary
+        label: Resum
+        type: text
+      - name: body
+        label: Presentació
+        type: rich-text
+      - name: active
+        label: Visible al web
+        type: boolean
+      - name: image
+        label: Imatge
+        type: image
+  - name: articles
+    label: Articles i recursos
+    type: collection
+    path: content/articles
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: title
+      fields: [title, date, published]
+    fields:
+      - name: title
+        label: Títol
+        type: string
+        required: true
+      - name: date
+        label: Data
+        type: date
+      - name: summary
+        label: Resum
+        type: text
+      - name: body
+        label: Article
+        type: rich-text
+      - name: image
+        label: Imatge
+        type: image
+      - name: published
+        label: Publicat
+        type: boolean
