@@ -1,0 +1,9 @@
+{
+  "slug": "exemple-esborrany",
+  "title": "Article d'exemple (esborrany)",
+  "date": "2026-10-24",
+  "summary": "Esborrany no publicat per comprovar el gestor.",
+  "body": "<p>Substitueix aquest text per l'article que vulguis publicar.</p>",
+  "image": "",
+  "published": false
+}
