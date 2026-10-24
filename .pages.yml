@@ -87,6 +87,18 @@ content:
       - name: body
         label: Contingut del curs
         type: rich-text
+      - name: gift_book_title
+        label: Llibre de regal — Títol
+        type: string
+      - name: gift_book_author
+        label: Llibre de regal — Autoria
+        type: string
+      - name: gift_book_publisher
+        label: Llibre de regal — Editorial
+        type: string
+      - name: gift_book_cover
+        label: Llibre de regal — Coberta
+        type: image
       - name: active
         label: Visible al web
         type: boolean
