@@ -68,7 +68,7 @@ for(const d of courses){
 }
 for(const file of ['matricula.html','resultat.html','article.html','arxiu.html']){let html=await read(file);const title=/<title>(.*?)<\/title>/.exec(html)?.[1]||'Orsini';html=metadata(html,file,title,'Orsini · Centre d’estudis radicals.',{index:false});await writeFile(file,html);}
 // Query-string course URLs are kept as compatibility entrypoints, then replaced by their static canonical URL.
-let generic=template.replace('</head>',`<meta name="robots" content="noindex,follow"><script>const id=new URLSearchParams(location.search).get('id');if(id&&/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id))location.replace('curs-'+encodeURIComponent(id)+'.html'+location.hash);</script></head>`);await writeFile('curs.html',generic);
+let generic=template.replace('</head>',`<script>const id=new URLSearchParams(location.search).get('id');if(id&&/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id))location.replace('curs-'+encodeURIComponent(id)+'.html'+location.hash);</script></head>`);await writeFile('curs.html',generic);
 const urls=pages.map(p=>p.url);
 await writeFile('sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls.map(url=>'  <url><loc>'+esc(url)+'</loc></url>').join('\n')+'\n</urlset>\n');
 // A subdirectory robots.txt cannot govern GitHub Pages. Page-level robots directives above are authoritative here.

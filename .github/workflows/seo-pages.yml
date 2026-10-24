@@ -1,5 +1,8 @@
 name: SEO · publicació i indexació
 on:
+  push:
+    branches: [main]
+    paths: ["content/**", "scripts/**", ".github/workflows/seo-pages.yml"]
   # The repository currently uses GitHub's branch-based Pages deployment.
   # Run afterwards so the CMS-derived static HTML is the final deployment.
   workflow_run:
@@ -16,7 +19,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   publish:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
