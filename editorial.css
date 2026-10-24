@@ -248,3 +248,7 @@ body h1,body h2,body h3{font-family:var(--serif);font-weight:350;letter-spacing:
 .v4 .course-info #gift-publisher{font-size:10px;line-height:1.6;color:var(--muted);margin:0}
 @media(max-width:900px){.gift-book-row{grid-template-columns:70px minmax(0,1fr);gap:14px}.v4 .course-info #gift-cover{width:70px;height:110px}.v4 .course-info .gift-book h3{font-size:19px}}
 @media(max-width:600px){.gift-book-row{grid-template-columns:88px minmax(0,1fr);gap:18px}.v4 .course-info #gift-cover{width:88px;height:138px}.v4 .course-info .gift-book h3{font-size:22px}.v4 .course-info .gift-label{font-size:11px}}
+
+/* Center the symbol on the wordmark rather than on the descriptor's baseline. */
+.v4.proposal.icons8 .brand .brand-symbol{transform:translateY(3.5px)}
+@media(max-width:600px){.v4.proposal.icons8 .brand .brand-symbol{transform:translateY(2px)}}
