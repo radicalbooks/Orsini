@@ -307,3 +307,10 @@ body.v4.proposal.icons8 .topbar .nav>.navlinks{position:relative;top:5px;align-s
 body.v4.proposal.icons8 .topbar .nav>a.brand img.brand-symbol{transform:translateY(0)!important}
 @media(max-width:900px){body.v4.proposal.icons8 .topbar .nav>.navlinks{top:0}}
 @media(max-width:600px){body.v4.proposal.icons8 .topbar .nav>a.brand{top:4px}}
+
+/* True vertical centering: remove previous downward nudges on both groups. */
+body.v4.proposal.icons8 .topbar .nav{display:flex!important;align-items:center!important}
+body.v4.proposal.icons8 .topbar .nav>a.brand{top:0!important;transform:none!important;align-self:center!important}
+body.v4.proposal.icons8 .topbar .nav>.navlinks{top:0!important;transform:none!important;align-self:center!important;align-items:center!important}
+body.v4.proposal.icons8 .topbar .nav>a.brand img.brand-symbol{transform:none!important}
+@media(max-width:600px){body.v4.proposal.icons8 .topbar .nav>a.brand{top:0!important}}
