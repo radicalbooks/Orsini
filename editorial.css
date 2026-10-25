@@ -292,3 +292,10 @@ body h1,body h2,body h3{font-family:var(--serif);font-weight:350;letter-spacing:
 /* Optical alignment of symbol with the lowercase 'o' in Orsini wordmark. */
 body.v4.proposal.icons8 .topbar .brand img.brand-symbol{transform:translateY(7px)!important;position:relative;top:0!important}
 @media(max-width:600px){body.v4.proposal.icons8 .topbar .brand img.brand-symbol{transform:translateY(5px)!important}}
+
+/* Center the complete logo lockup against the navigation text on the header axis. */
+.v4.proposal.icons8 .nav{display:flex;align-items:center}
+.v4.proposal.icons8 .nav>.brand{display:flex;align-items:center;align-self:center;gap:13px}
+.v4.proposal.icons8 .nav>.brand strong,.v4.proposal.icons8 .nav>.brand span{align-self:center;margin:0}
+.v4.proposal.icons8 .nav>.navlinks{align-self:center;align-items:center}
+@media(max-width:600px){.v4.proposal.icons8 .nav>.brand{gap:9px}}
