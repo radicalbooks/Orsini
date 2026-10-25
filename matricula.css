@@ -42,3 +42,22 @@
 .v4 .enrol-fields legend+*{clear:both}
 .v4 .registration #enrol{min-width:0}
 .v4 .registration .check span{min-width:0;overflow-wrap:anywhere}
+
+/* Compact one-screen enrolment */
+.v4 .registration{max-width:1120px;margin:auto;padding-top:28px}
+.v4 .registration .page-hero h1{font-size:clamp(48px,7vw,76px);margin:12px 0}
+.v4 .registration .hero-intro{margin-bottom:0}
+.v4 .registration .form-layout{margin-top:26px;gap:clamp(22px,5vw,70px);grid-template-columns:minmax(0,1.25fr) minmax(270px,.75fr)}
+.v4 .registration #enrol h2{font:400 32px/1.15 var(--serif);margin:0 0 10px}
+.v4 .registration .field{margin-bottom:16px}
+.v4 .registration .enrol-fields{margin-top:12px;padding-top:16px}
+.v4 .registration .enrol-fields legend{font-size:20px;margin-bottom:14px}
+.v4 .registration .enrol-consents{margin-top:18px;padding-top:15px;margin-bottom:18px}
+.v4 .registration .enrol-consents legend{font-size:20px}
+.v4 .registration .enrol-consents .field-help{margin-top:0}
+.v4 .registration .test-alert{margin:20px 0 0;padding:12px 16px;font-size:12px}
+.v4 .registration .enrol-summary{padding:24px;background:#edf23d;border:1px solid var(--ink);align-self:start}
+.v4 .registration .enrol-summary .summary-drawing{display:none}
+.v4 .registration .enrol-summary .amount{font-size:44px}
+.v4 .registration .pay{font-weight:650;min-height:58px}
+@media(max-width:700px){.v4 .registration .form-layout{grid-template-columns:1fr;gap:20px}.v4 .registration .enrol-summary{grid-row:1;padding:18px}.v4 .registration .page-hero h1{font-size:48px}.v4 .registration .enrol-summary .amount{font-size:36px}}
