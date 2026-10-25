@@ -26,6 +26,6 @@ async function load(){
  if(!ready)show('El formulari ja està preparat. La matrícula ampliada de prova està pendent d’activació.',false);else if(new URLSearchParams(location.search).has('cancelled'))show(copy.cancelled_message||'Has cancel·lat el pagament de prova. La matrícula no està confirmada.');
  }catch{course.replaceChildren(new Option('Cursos no disponibles',''));show('No podem consultar les places ara mateix. Torna-ho a provar més tard.',true)}
 }
-if(matchMedia('(max-width:700px)').matches)document.querySelector('.enrol-summary-details').open=false;
+document.querySelector('.enrol-summary-details').open=false;
 communityConsent();load();
 })();
