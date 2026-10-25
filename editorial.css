@@ -300,3 +300,7 @@ body.v4.proposal.icons8 .topbar .nav>.navlinks{display:flex;align-items:center;a
 @media(max-width:900px){.js body.v4.proposal.icons8 .topbar .nav>.navlinks:not(.open){display:none}}
 @media(max-width:600px){body.v4.proposal.icons8 .topbar .nav>a.brand{gap:9px}}
 
+
+/* Descriptor sits on the lower edge of the Orsini wordmark, without moving the lockup. */
+body.v4.proposal.icons8 .topbar .nav>a.brand span{align-self:flex-end;margin:0 0 1px 0;line-height:1.25}
+@media(max-width:600px){body.v4.proposal.icons8 .topbar .nav>a.brand span{margin-bottom:1px}}
