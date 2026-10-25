@@ -250,8 +250,8 @@ body h1,body h2,body h3{font-family:var(--serif);font-weight:350;letter-spacing:
 @media(max-width:600px){.gift-book-row{grid-template-columns:88px minmax(0,1fr);gap:18px}.v4 .course-info #gift-cover{width:88px;height:138px}.v4 .course-info .gift-book h3{font-size:22px}.v4 .course-info .gift-label{font-size:11px}}
 
 /* Center the symbol on the wordmark rather than on the descriptor's baseline. */
-.v4.proposal.icons8 .brand .brand-symbol{transform:translateY(1.5px)}
-@media(max-width:600px){.v4.proposal.icons8 .brand .brand-symbol{transform:translateY(1px)}}
+.v4.proposal.icons8 .brand .brand-symbol{transform:translateY(4px)}
+@media(max-width:600px){.v4.proposal.icons8 .brand .brand-symbol{transform:translateY(3px)}}
 
 /* Shared, native disclosures for course teams and the academic council. */
 .v4 .people-panel{margin-top:40px;padding-top:28px;border-top:1px solid var(--line)}
