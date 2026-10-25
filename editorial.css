@@ -299,3 +299,11 @@ body.v4.proposal.icons8 .topbar .brand img.brand-symbol{transform:translateY(7px
 .v4.proposal.icons8 .nav>.brand strong,.v4.proposal.icons8 .nav>.brand span{align-self:center;margin:0}
 .v4.proposal.icons8 .nav>.navlinks{align-self:center;align-items:center}
 @media(max-width:600px){.v4.proposal.icons8 .nav>.brand{gap:9px}}
+
+/* Header: move the ENTIRE brand group and right-side navigation as units, not just the symbol. */
+body.v4.proposal.icons8 .topbar .nav{align-items:center!important}
+body.v4.proposal.icons8 .topbar .nav>a.brand{position:relative;top:5px;align-self:center!important}
+body.v4.proposal.icons8 .topbar .nav>.navlinks{position:relative;top:5px;align-self:center!important}
+body.v4.proposal.icons8 .topbar .nav>a.brand img.brand-symbol{transform:translateY(0)!important}
+@media(max-width:900px){body.v4.proposal.icons8 .topbar .nav>.navlinks{top:0}}
+@media(max-width:600px){body.v4.proposal.icons8 .topbar .nav>a.brand{top:4px}}
