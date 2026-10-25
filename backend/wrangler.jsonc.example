@@ -1,0 +1,10 @@
+{
+  "name": "orsini-matricules-api",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-10-25",
+  "vars": {"SITE_URL": "https://radicalbooks.github.io/Orsini/"},
+  "d1_databases": [{"binding":"DB","database_name":"orsini-matricules","database_id":"REPLACE_WITH_EXISTING_DATABASE_ID"}],
+  "triggers": {"crons":["*/15 * * * *"]}
+  // Add the EMAIL binding only once sender and service are configured.
+  // Keep API keys in Worker secrets, never in this file.
+}

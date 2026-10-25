@@ -30,7 +30,12 @@ jobs:
           ref: main
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '24'
+      - name: Verify enrollment and payment handling
+        run: |
+          node --check matricula.js
+          node --check resultat-matricula.js
+          node --test backend/worker.test.mjs
       - name: Generate static content and SEO
         run: node scripts/build-seo.mjs
       - name: Validate generated pages

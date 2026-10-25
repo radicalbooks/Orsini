@@ -230,3 +230,55 @@ content:
       - name: body
         label: Contingut
         type: rich-text
+  - name: matricula
+    label: Textos de matrícula
+    type: file
+    path: content/matricula.json
+    format: json
+    fields:
+      - name: intro
+        label: Introducció
+        type: text
+      - name: book_delivery
+        label: Lliurament del llibre
+        type: text
+      - name: payment_hint
+        label: Avís abans del pagament
+        type: text
+      - name: success_message
+        label: Pagament verificat
+        type: text
+      - name: pending_message
+        label: Pagament pendent
+        type: text
+      - name: cancelled_message
+        label: Pagament cancel·lat
+        type: text
+  - name: correus-matricula
+    label: Correu de confirmació de matrícula
+    type: file
+    path: content/correus-matricula.json
+    format: json
+    fields:
+      - name: subject
+        label: Assumpte
+        type: string
+      - name: body
+        label: Text del correu
+        type: text
+        description: "Variables disponibles: {{name}}, {{course_title}}, {{reference}}, {{amount}}, {{schedule}}, {{location}}, {{book_title}}. El servidor identifica automàticament els correus de prova."
+  - name: condicions-matricula
+    label: Condicions de matrícula
+    type: file
+    path: content/condicions-matricula.json
+    format: json
+    fields:
+      - name: title
+        label: Títol
+        type: string
+      - name: version
+        label: Versió
+        type: string
+      - name: body
+        label: Condicions
+        type: rich-text

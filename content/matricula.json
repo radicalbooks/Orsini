@@ -1,0 +1,8 @@
+{
+  "intro": "Completa les teves dades i continua al pagament per formalitzar la matrícula.",
+  "book_delivery": "Et lliurarem el llibre a la primera sessió.",
+  "payment_hint": "El pagament es farà a Stripe. La matrícula només es confirma després de verificar el pagament.",
+  "success_message": "Hem verificat el pagament de prova. La matrícula de prova està confirmada; no correspon a una plaça real.",
+  "pending_message": "Encara estem comprovant el pagament. No cal tornar-lo a fer. Pots consultar l’estat de nou en uns instants.",
+  "cancelled_message": "Has cancel·lat el procés de pagament. La matrícula no està confirmada. Pots tornar a començar quan vulguis."
+}

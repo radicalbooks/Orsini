@@ -1,0 +1,44 @@
+.v4 .registration{max-width:none}
+.v4 .registration .form-layout{grid-template-columns:minmax(0,1.45fr) minmax(260px,1fr);gap:8vw}
+.v4 .enrol-fields{border:0;border-top:1px solid var(--line);margin:28px 0 0;padding:26px 0 0;min-width:0}
+.v4 .enrol-fields legend{float:left;width:100%;padding:0;margin:0 0 22px;font:350 27px/1.3 var(--serif)}
+.v4 .enrol-fields legend+.field,.v4 .enrol-fields legend+.form-hint{clear:both}
+.v4 .enrol-fields .form-hint{margin:0 0 20px}
+.v4 .registration .field label span{font-weight:400;color:var(--muted);font-size:11px;margin-left:6px}
+.v4 .registration .field input,.v4 .registration .field select,.v4 .registration .field textarea{border:1px solid var(--line);padding:13px 14px;border-radius:0;background:var(--paper);font:inherit;font-size:14px;max-width:100%;width:100%;color:var(--ink);min-height:47px}
+.v4 .registration .field textarea{resize:vertical;min-height:104px;line-height:1.8}
+.v4 .registration .field input:focus-visible,.v4 .registration .field select:focus-visible,.v4 .registration .field textarea:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.v4 .registration .field-help{font-size:11px;line-height:1.8;color:var(--muted);margin:8px 0 0}
+.v4 .enrol-field-row{display:grid;grid-template-columns:minmax(90px,.65fr) minmax(0,1.35fr);gap:18px}
+.v4 .registration .check{font-size:12px;line-height:1.8;margin:0 0 18px}
+.v4 .registration .optional-consent{padding:16px;border:1px solid var(--line);background:#eff1e4}
+.v4 .registration .enrol-consents{margin-bottom:26px}
+.v4 .registration .enrol-consents legend{font-size:24px}
+.v4 .registration .pay{width:100%;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:17px 22px}
+.v4 .registration .status{min-height:0;font-size:13px;line-height:1.8}
+.v4 .registration .status:empty{margin:0}
+.v4 .registration .enrol-summary{top:105px}
+.v4 .registration .enrol-book{display:flex;gap:18px;padding:24px 0;margin:0 0 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);align-items:flex-start}
+.v4 .registration .enrol-book img{width:72px;height:108px;object-fit:contain;flex:none;mix-blend-mode:multiply}
+.v4 .registration .enrol-book p{font-size:12px;margin:0 0 10px;line-height:1.8}
+.v4 .registration .enrol-book .book-label{font-size:10px;color:var(--muted);margin-bottom:8px}
+.v4 .registration #summary-book-title{font:350 23px/1.3 var(--serif)}
+.v4 .result-mode{font-size:11px;color:var(--muted);margin:24px 0}
+.v4 .result-facts{max-width:700px;margin:32px 0;padding:22px;background:#eff1e4}
+.v4 .result-page{max-width:1100px}
+.v4 .result-page h1{max-width:20ch}
+[hidden]{display:none!important}
+@media(max-width:900px){.v4 .registration .form-layout{gap:35px;grid-template-columns:minmax(0,1.2fr) minmax(240px,1fr)}}
+@media(max-width:700px){.v4 .registration .form-layout{grid-template-columns:1fr;gap:26px}.v4 .registration .enrol-summary{position:static;grid-row:1}.v4 .registration .enrol-summary .summary-drawing{display:none}.v4 .enrol-fields legend{font-size:25px}.v4 .registration .field label{font-size:12px}.v4 .enrol-field-row{grid-template-columns:1fr}.v4 .registration .field input,.v4 .registration .field select,.v4 .registration .field textarea{font-size:16px}.v4 .registration .test-alert{font-size:12px}.v4 .registration .enrol-book{padding:18px 0;margin-bottom:15px}}
+
+.v4 .enrol-summary-details{border-top:1px solid var(--line);padding-top:0}
+.v4 .enrol-summary-details>summary{cursor:pointer;display:flex;justify-content:space-between;gap:16px;list-style:none;font-size:11px;line-height:1.8;padding:16px 0}
+.v4 .enrol-summary-details>summary::-webkit-details-marker{display:none}
+.v4 .enrol-summary-details>summary::after{content:'+';font-size:18px;line-height:1}
+.v4 .enrol-summary-details[open]>summary::after{content:'−'}
+.v4 .enrol-summary-details[open]>summary{margin-bottom:14px}
+.v4 .registration .enrol-summary .enrol-total{margin-bottom:0;border-top:0}
+@media(max-width:700px){.v4 .registration .enrol-summary h2{font-size:25px;margin-bottom:12px}.v4 .registration .enrol-summary #summary-description{font-size:12px;margin-bottom:12px}.v4 .registration .enrol-summary .enrol-total{padding:12px 0}.v4 .registration .enrol-summary .amount{font-size:35px}}
+.v4 .enrol-fields legend+*{clear:both}
+.v4 .registration #enrol{min-width:0}
+.v4 .registration .check span{min-width:0;overflow-wrap:anywhere}

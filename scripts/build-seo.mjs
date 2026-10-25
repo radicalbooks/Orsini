@@ -64,9 +64,9 @@ for(const file of ['index.html','programa.html']){
  else {html=byClass(html,'lead',esc(web.program_intro));html=byClass(html,'small',esc(web.course_note));}
  html=metadata(html,file,file==='index.html'?'Orsini · Centre d’estudis radicals a Barcelona':'Cursos de formació política a Barcelona · Orsini',file==='index.html'?'Orsini, centre d’estudis radicals a Barcelona. Un espai de lectura, debat i formació política per comprendre el present i actuar col·lectivament.':'Descobreix els cursos d’Orsini a Barcelona: feminismes, història, cultura i organització política. Grups reduïts. Programa 2027 en preparació.',{type:'CollectionPage',extra:[courseList]});await writeFile(file,html);
 }
-for(const name of ['centre','participa','privacitat','cookies','avis-legal']){
+for(const name of ['centre','participa','privacitat','cookies','avis-legal','condicions-matricula']){
  let html=await read(name+'.html');const d=await json('content/'+name+'.json');html=replaceElement(html,/<(h1)\b[^>]*>/i,esc(d.title));
- if(d.intro)html=byClass(html,'lead',esc(d.intro));
+ if(d.intro)html=byClass(html,'lead',esc(d.intro)+(name==='centre'?'<br><a class="textlink" href="#consell-academic">Consell acadèmic ↓</a>':''));
  let body=rich(d.body);
  if(name==='centre'){
  body+=academicCouncil(d);
