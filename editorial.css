@@ -288,3 +288,7 @@ body h1,body h2,body h3{font-family:var(--serif);font-weight:350;letter-spacing:
 .v4 .people-panel .coordinator-block .person-card{max-width:410px}
 .v4 .people-panel .council-description{margin-bottom:24px}
 @media(max-width:700px){.v4 .people-panel .people-cards{grid-template-columns:1fr;gap:23px}.v4 .people-panel .person-card{grid-template-columns:70px minmax(0,1fr);gap:15px}.v4 .people-panel .person-photo{width:70px;height:70px}.v4 .people-panel .person-card .person-name{font-size:20px}.v4 .people-panel .person-card p{font-size:12px}}
+
+/* Optical alignment of symbol with the lowercase 'o' in Orsini wordmark. */
+body.v4.proposal.icons8 .topbar .brand img.brand-symbol{transform:translateY(7px)!important;position:relative;top:0!important}
+@media(max-width:600px){body.v4.proposal.icons8 .topbar .brand img.brand-symbol{transform:translateY(5px)!important}}
