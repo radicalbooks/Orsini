@@ -312,3 +312,9 @@ body.v4.proposal.icons8 .topbar .nav>a.brand img.brand-symbol{transform:translat
 /* Align the LAST text baseline (radicals), not the first (Centre d'estudis), with orsini. */
 body.v4.proposal.icons8 .topbar .nav>a.brand strong{align-self:last baseline!important}
 body.v4.proposal.icons8 .topbar .nav>a.brand span.brand-descriptor{align-self:last baseline!important;margin:0!important;line-height:1.35!important}
+
+/* Align the actual text baselines: 'radicals' (last line) with 'orsini'. */
+body.v4.proposal.icons8 .topbar .nav>a.brand{align-items:baseline!important}
+body.v4.proposal.icons8 .topbar .nav>a.brand strong{align-self:baseline!important}
+body.v4.proposal.icons8 .topbar .nav>a.brand span.brand-descriptor{display:block!important;align-self:baseline!important;line-height:1.35!important;margin:0!important}
+body.v4.proposal.icons8 .topbar .nav>a.brand img.brand-symbol{align-self:center!important}
