@@ -308,3 +308,7 @@ body.v4.proposal.icons8 .topbar .nav>a.brand span{align-self:flex-end;margin:0 0
 /* Final optical adjustment: descriptor centered alongside the wordmark; symbol 1px lower. */
 body.v4.proposal.icons8 .topbar .nav>a.brand span{align-self:center;margin:0;line-height:1.35}
 body.v4.proposal.icons8 .topbar .nav>a.brand img.brand-symbol{transform:translateY(1px)!important}
+
+/* Align the LAST text baseline (radicals), not the first (Centre d'estudis), with orsini. */
+body.v4.proposal.icons8 .topbar .nav>a.brand strong{align-self:last baseline!important}
+body.v4.proposal.icons8 .topbar .nav>a.brand span.brand-descriptor{align-self:last baseline!important;margin:0!important;line-height:1.35!important}
