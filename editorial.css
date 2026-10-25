@@ -326,4 +326,4 @@ body.v4.proposal.icons8 .topbar .nav>a.brand strong{align-self:center!important}
 body.v4.proposal.icons8 .topbar .nav>a.brand span.brand-descriptor{align-self:flex-end!important;margin:0 0 3.5px 0!important;line-height:1.35!important}
 
 /* Screenshot correction: lift descriptor as one unit, preserving all other header elements. */
-body.v4.proposal.icons8 .topbar .nav>a.brand span.brand-descriptor{position:relative!important;top:-12px!important}
+body.v4.proposal.icons8 .topbar .nav>a.brand span.brand-descriptor{position:relative!important;top:-10px!important}
