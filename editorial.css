@@ -331,7 +331,7 @@ body.v4.proposal.icons8 .topbar .nav>a.brand{align-items:center!important}
 body.v4.proposal.icons8 .topbar .nav>a.brand strong{align-self:center!important}
 body.v4.proposal.icons8 .topbar .nav>a.brand span.brand-descriptor{
   position:static!important;top:auto!important;transform:none!important;
-  align-self:flex-end!important;margin:0 0 3px 0!important;
+  align-self:flex-end!important;margin:0 0 4px 0!important;
   font-size:11px!important;line-height:1.2!important;
   font-weight:400!important;white-space:nowrap!important;max-width:none!important;
 }
