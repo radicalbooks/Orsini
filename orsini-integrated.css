@@ -113,3 +113,54 @@ img,video{max-width:100%;height:auto}
 }
 @media print{.rb-strip,.rb-foot{display:none}}
 .brand-descriptor{white-space:nowrap}
+
+/* ---------- Un sol peu: la línia de Radical Books forma part del peu d'Orsini ---------- */
+.footer{padding-bottom:0}
+.rb-foot{background:var(--o-accent);color:var(--o-ink);border-top:1px solid rgba(32,35,30,.18);font-size:13px}
+.rb-foot__in{padding-top:6px;padding-bottom:6px}
+.rb-foot__in>a::before{content:"";display:inline-block;width:10px;height:10px;margin-right:8px;background:var(--rb-orange);vertical-align:-1px}
+.textlink{white-space:nowrap}
+.brand-descriptor,.topbar .brand>span{font-size:11px!important;line-height:1.2!important;white-space:nowrap}
+
+/* ---------- Mòbil: correccions de llegibilitat i zona tàctil ---------- */
+@media (max-width:700px){
+ :root{--o-strip:36px}
+ .rb-strip{font-size:12px}
+ .rb-strip__lang a{min-height:36px}
+ .rb-strip__lang a[aria-current]::after{bottom:7px}
+ .topbar .nav{min-height:60px;padding-top:6px!important;padding-bottom:6px!important}
+ .topbar .brand strong{font-size:30px!important}
+ .topbar .brand-symbol{width:30px!important;height:auto!important}
+ .menubtn{min-height:40px!important;padding:8px 16px!important;font-size:13px!important}
+ .navlinks.open{padding:4px 0 12px!important;gap:0!important}
+ .navlinks.open a{font-size:16px!important;border-top:1px solid rgba(32,35,30,.15);width:100%}
+ /* text mínim 12px */
+ .course-num,.course-tag,.status-pill,.eyebrow,.eyebrow a,dt,.catalog-note,.catalog-foot,.notice,.small,.people-intro{font-size:12px!important}
+ .course-summary{font-size:14px!important}
+ .breadcrumb a,.eyebrow a{display:inline-flex;align-items:center;min-height:44px}
+ /* portada: il·lustració més continguda */
+ .home-intro{padding-bottom:20px!important}
+ .home-intro .intro-photo{max-width:240px;margin:4px auto 0!important}
+ .home-intro-field{padding-bottom:8px!important}
+ /* peu */
+ .footer .footer-top{gap:12px!important}
+ .footer .identity-art{width:64px!important;height:auto!important}
+ .footer-links{display:flex!important;flex-wrap:wrap;gap:0 18px!important}
+ .footer-links a{display:inline-flex;align-items:center;min-height:44px;font-size:13px!important}
+ .rb-foot__in{flex-direction:row!important;align-items:center!important;padding-bottom:6px!important}
+ .rb-foot__in>a{flex-basis:100%}
+ /* fitxa de curs */
+ .course-hero h1{font-size:clamp(36px,10vw,52px)!important}
+ .course-details summary,.people-disclosure summary{min-height:48px;display:flex;align-items:center;gap:8px}
+}
+.footer-top p{font-size:12px!important}
+.rb-strip__mark{font-size:10px}
+@media (max-width:700px){.centre-index a{font-size:13px!important;min-height:40px;display:inline-flex;align-items:center}}
+/* Mida mínima llegible (≥12px; ajudes de formulari 13px) */
+.subnav a,.course-kicker span,#dynamic-category,.people-content h3,.coordinator-block h3,.gift-label,.gift-book-copy p,.back-to-courses a,.book-label,.enrol-summary-details p,.enrol-total span,.textlink,.textlink span{font-size:12px!important}
+.cta,.cta span,.enrol-summary-details summary{font-size:13px!important}
+.form-hint,.field-help,.payment-hint{font-size:13px!important;line-height:1.5!important}
+@media (max-width:700px){.subnav a,.back-to-courses a{min-height:44px;display:inline-flex;align-items:center}}
+.catalog-foot a span{display:inline!important;margin:0 0 0 4px!important}
+.catalog-foot a{display:inline-flex!important;align-items:center;min-height:44px}
+@media (max-width:700px){.topbar .brand>span{max-width:none}}
