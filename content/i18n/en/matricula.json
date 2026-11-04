@@ -1,0 +1,8 @@
+{
+  "intro": "Fill in your details and continue to payment to complete your registration.",
+  "book_delivery": "We will give you the book at the first session.",
+  "payment_hint": "Payment is made on Stripe. Registration is only confirmed once the payment has been verified.",
+  "success_message": "We have verified the test payment. The test registration is confirmed; it does not correspond to a real place.",
+  "pending_message": "We are still checking the payment. There is no need to pay again. You can check the status again in a few moments.",
+  "cancelled_message": "You cancelled the payment process. Your registration is not confirmed. You can start again whenever you like."
+}

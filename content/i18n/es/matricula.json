@@ -1,0 +1,8 @@
+{
+  "intro": "Completa tus datos y continúa al pago para formalizar la matrícula.",
+  "book_delivery": "Te entregaremos el libro en la primera sesión.",
+  "payment_hint": "El pago se hará en Stripe. La matrícula solo se confirma después de verificar el pago.",
+  "success_message": "Hemos verificado el pago de prueba. La matrícula de prueba está confirmada; no corresponde a una plaza real.",
+  "pending_message": "Todavía estamos comprobando el pago. No hace falta repetirlo. Puedes consultar el estado de nuevo en unos instantes.",
+  "cancelled_message": "Has cancelado el proceso de pago. La matrícula no está confirmada. Puedes volver a empezar cuando quieras."
+}

@@ -1,0 +1,4 @@
+{
+  "subject": "Matrícula confirmada · {{course_title}} · Orsini",
+  "body": "Hola, {{name}}:\n\nHemos recibido el pago y tu matrícula en «{{course_title}}» está confirmada.\n\nReferencia: {{reference}}\nImporte pagado: {{amount}}\nFechas: {{schedule}}\nModalidad y lugar: {{location}}\n\nLa matrícula incluye el libro «{{book_title}}», que te entregaremos en la primera sesión.\n\nAntes de empezar, te enviaremos la información práctica y las indicaciones sobre las lecturas.\n\nPara cualquier consulta, responde a este correo indicando la referencia de matrícula.\n\nNos vemos en Orsini.\nCentro de estudios radicales\nUn proyecto vinculado a Radical Books Coop."
+}

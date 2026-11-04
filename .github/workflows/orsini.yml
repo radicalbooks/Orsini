@@ -1,0 +1,36 @@
+name: Orsini · proves, build i desplegament privat
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: orsini-deploy
+  cancel-in-progress: false
+jobs:
+  test-build-deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_ACCOUNT_ID: c91af05cf3de34da533ec7693e6db4fc
+      HAS_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Proves (API, matrícula, porta d'accés)
+        run: |
+          node --check matricula.js
+          node --check resultat-matricula.js
+          node --test backend/worker.test.mjs worker/gate.test.mjs
+      - name: Build multilingüe (ca/es/en)
+        # ORSINI_PUBLIC només es posa a "true" amb l'activació pública (ACTIVACIO.md).
+        run: ORSINI_PUBLIC=${{ vars.ORSINI_PUBLIC == 'true' && 'true' || 'false' }} node scripts/build-site.mjs
+      - name: Comprova que no queda cap banner de cookies propi
+        run: "! grep -R --include=*.html -l 'orsini-cookie-consent' dist/"
+      - name: Desplega el Worker (només si hi ha el secret)
+        if: ${{ env.HAS_TOKEN == 'true' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npx --yes wrangler@4 deploy --config worker/wrangler.jsonc

@@ -1,0 +1,27 @@
+{
+  // Orsini · Worker únic (web + API). Desplegat per GitHub Actions; mai amb secrets en aquest fitxer.
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "orsini",
+  "main": "src/index.mjs",
+  "compatibility_date": "2026-10-25",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "orsini.radicalbooks.coop", "custom_domain": true }],
+  "assets": { "directory": "../dist", "binding": "ASSETS", "run_worker_first": true, "not_found_handling": "404-page", "html_handling": "auto-trailing-slash" },
+  "d1_databases": [{ "binding": "DB", "database_name": "orsini", "database_id": "REPLACE_WITH_D1_ID" }],
+  "triggers": { "crons": ["*/15 * * * *"] },
+  "vars": {
+    // Estat verificable. Canviar-los és una decisió explícita i separada (vegeu ACTIVACIO.md).
+    "ORSINI_PUBLIC": "false",
+    "PUBLIC_ENROLLMENT": "false",
+    "STRIPE_MODE": "test",
+    "LIVE_PAYMENTS": "false",
+    "SITE_URL": "https://orsini.radicalbooks.coop/ca/",
+    "CANONICAL_BASE": "https://www.radicalbooks.coop/orsini/",
+    "ALLOWED_ORIGINS": "https://orsini.radicalbooks.coop,https://www.radicalbooks.coop,https://radicalbooks.coop",
+    "ACCESS_TEAM_DOMAIN": "REPLACE_WITH_TEAM.cloudflareaccess.com",
+    "ACCESS_AUD": "REPLACE_WITH_ACCESS_APPLICATION_AUD"
+  }
+  // Secrets (wrangler secret put / Cloudflare dashboard): STRIPE_SECRET_KEY (sk_test_/rk_test_), STRIPE_WEBHOOK_SECRET (whsec_).
+  // Correu (opcional, quan hi hagi remitent verificat): binding EMAIL (send_email), MAIL_FROM, MAIL_REPLY_TO.
+}

@@ -1,0 +1,4 @@
+{
+  "subject": "Registration confirmed · {{course_title}} · Orsini",
+  "body": "Hello {{name}},\n\nWe have received your payment and your registration for “{{course_title}}” is confirmed.\n\nReference: {{reference}}\nAmount paid: {{amount}}\nDates: {{schedule}}\nFormat and venue: {{location}}\n\nYour registration includes the book “{{book_title}}”, which we will give you at the first session.\n\nBefore the course starts, we will send you practical information and guidance on the readings.\n\nIf you have any questions, reply to this email quoting your registration reference.\n\nSee you at Orsini.\nCentre for radical studies\nA project linked to Radical Books Coop."
+}
