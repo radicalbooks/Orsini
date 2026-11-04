@@ -1,13 +1,10 @@
-# Orsini — reconstrucció editable inicial
+# Orsini · Centre d'estudis radicals
 
-Web estàtica en català. Obre `index.html` al navegador.
+Font única del web d'Orsini (ca/es/en) i de la seva API de matrícula. **Estat: PRIVATE / PRELAUNCH.**
 
-Inclou el logotip geomètric vectorial i la capçalera editable.
+- Continguts: `content/` (català) i `content/i18n/{es,en}/` (traduccions, capa sobre el català). Interfície: `i18n/ui.json`.
+- Build: `node scripts/build-site.mjs` → `dist/`. Proves: `node --test backend/worker.test.mjs worker/gate.test.mjs`.
+- Desplegament: GitHub Actions → Worker `orsini` (Cloudflare). WordPress `/orsini/` en fa d'intermediari (`wordpress/`).
+- Activació i reversió: `ACTIVACIO.md`.
 
-**Important:** és una reconstrucció parcial, no una extracció de la web original de ChatGPT Work. Els continguts no recuperats no s'han inventat.
-
-## Publicació
-Compatible amb GitHub Pages o Vercel com a projecte estàtic sense procés de compilació.
-
-## Còpia anterior
-La imatge original de referència es conserva al ZIP de treball compartit a la conversa; no s'ha publicat al repositori.
+Les traduccions al castellà i a l'anglès són una primera versió completa pendent de revisió editorial; els continguts de prova (consell acadèmic, professorat «Lorem ipsum») continuen marcats com a ficticis i no s'han traduït.

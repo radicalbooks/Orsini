@@ -8,7 +8,7 @@
   "preview_urls": false,
   "routes": [{ "pattern": "orsini.radicalbooks.coop", "custom_domain": true }],
   "assets": { "directory": "../dist", "binding": "ASSETS", "run_worker_first": true, "not_found_handling": "404-page", "html_handling": "auto-trailing-slash" },
-  "d1_databases": [{ "binding": "DB", "database_name": "orsini", "database_id": "REPLACE_WITH_D1_ID" }],
+  "d1_databases": [{ "binding": "DB", "database_name": "orsini", "database_id": "91d7b100-1cb9-4438-a717-40b29362e8ba" }],
   "triggers": { "crons": ["*/15 * * * *"] },
   "vars": {
     // Estat verificable. Canviar-los és una decisió explícita i separada (vegeu ACTIVACIO.md).
@@ -19,8 +19,8 @@
     "SITE_URL": "https://orsini.radicalbooks.coop/ca/",
     "CANONICAL_BASE": "https://www.radicalbooks.coop/orsini/",
     "ALLOWED_ORIGINS": "https://orsini.radicalbooks.coop,https://www.radicalbooks.coop,https://radicalbooks.coop",
-    "ACCESS_TEAM_DOMAIN": "REPLACE_WITH_TEAM.cloudflareaccess.com",
-    "ACCESS_AUD": "REPLACE_WITH_ACCESS_APPLICATION_AUD"
+    "ACCESS_TEAM_DOMAIN": "frosty-base-18f9.cloudflareaccess.com",
+    "ACCESS_AUD": "81a78b155d07b65197542594e179ceed29b9b43b3ef037f2c06ef8eddc2c94d2"
   }
   // Secrets (wrangler secret put / Cloudflare dashboard): STRIPE_SECRET_KEY (sk_test_/rk_test_), STRIPE_WEBHOOK_SECRET (whsec_).
   // Correu (opcional, quan hi hagi remitent verificat): binding EMAIL (send_email), MAIL_FROM, MAIL_REPLY_TO.
