@@ -2,7 +2,7 @@ name: SEO · publicació i indexació
 on:
   push:
     branches: [main]
-    paths: ["content/**", "scripts/**", ".github/workflows/seo-pages.yml"]
+    paths: ["content/**", "scripts/**", "prelaunch/**", ".github/workflows/seo-pages.yml"]
   # The repository currently uses GitHub's branch-based Pages deployment.
   # Run afterwards so the CMS-derived static HTML is the final deployment.
   workflow_run:
@@ -40,7 +40,16 @@ jobs:
         run: node scripts/build-seo.mjs
       - name: Validate generated pages
         run: node scripts/check-seo.mjs
+      # PRIVATE / PRELAUNCH: unless the repository variable ORSINI_PUBLIC is
+      # exactly "true", only a noindex 404 is published. Every path returns 404.
+      - name: Prepare files (prelaunch stub)
+        if: vars.ORSINI_PUBLIC != 'true'
+        run: |
+          mkdir _site
+          cp prelaunch/404.html prelaunch/robots.txt _site/
+          touch _site/.nojekyll
       - name: Prepare public files
+        if: vars.ORSINI_PUBLIC == 'true'
         run: |
           mkdir _site
           cp *.html *.css *.js *.svg *.webp sitemap.xml robots.txt .nojekyll _site/
@@ -54,5 +63,6 @@ jobs:
         uses: actions/deploy-pages@v4
       - name: Notify IndexNow
         # Discovery failure must not undo a successful site publication.
+        if: vars.ORSINI_PUBLIC == 'true'
         continue-on-error: true
         run: node scripts/notify-indexnow.mjs
