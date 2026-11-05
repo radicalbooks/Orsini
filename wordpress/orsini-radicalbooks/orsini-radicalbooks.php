@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Orsini per a Radical Books
- * Description: Integra Orsini a radicalbooks.coop/orsini/ servint la mateixa aplicació que orsini.radicalbooks.coop (una sola font). Ocult per defecte: 404 per als visitants, vista prèvia per a administradors.
- * Version: 2.0.0
+ * Description: Integra Orsini a radicalbooks.coop/orsini/ (ca/es/en) amb el build del repositori radicalbooks/Orsini; la matrícula passa pel Worker d'Orsini. Ocult per defecte: 404 per als visitants, vista prèvia per a administradors.
+ * Version: 2.1.0
  * Author: Radical Books
  * Requires PHP: 7.4
  * License: GPL-2.0-or-later
@@ -13,7 +13,7 @@ final class RB_Orsini {
 	const OPT = 'rb_orsini_v2';
 	const SLUG = 'rb-orsini';
 	const BASE = 'orsini';
-	const VERSION = '2.0.0';
+	const VERSION = '2.1.0';
 
 	static function opts() {
 		$o = get_option(self::OPT, array());
@@ -67,7 +67,39 @@ final class RB_Orsini {
 		if ($rest === '' ) { wp_safe_redirect(home_url('/' . self::BASE . '/'), 301); exit; }
 		if ($rest === '/') { wp_safe_redirect(home_url('/' . self::BASE . '/' . self::lang() . '/'), 302); exit; }
 		if (!preg_match('#^/(ca|es|en|api)(/|$)#', $rest)) { $wp->query_vars = array('error' => '404'); return; }
+		// Pages and assets come from the bundled build (same source as the Worker); the API always goes to the Worker.
+		if (strpos($rest, '/api/') !== 0 && self::serve_local($rest, $hidden)) exit;
+		if (strpos($rest, '/api/') !== 0 && is_dir(self::site_dir())) { $wp->query_vars = array('error' => '404'); return; }
 		self::proxy($rest, $hidden);
+	}
+
+	static function site_dir() { return __DIR__ . '/site'; }
+
+	/** Serve /<lang>/<path> from site/<lang>/ or site/_shared/. Returns false when the file does not exist. */
+	static function serve_local($rest, $hidden) {
+		$base = realpath(self::site_dir());
+		if (!$base || !preg_match('#^/(ca|es|en)(/.*)?$#', $rest, $m)) return false;
+		$lang = $m[1];
+		$rel = isset($m[2]) ? ltrim(rawurldecode($m[2]), '/') : '';
+		if ($rel === '' || substr($rel, -1) === '/') $rel .= 'index.html';
+		if (strpos($rel, '..') !== false || strpos($rel, "\0") !== false) return false;
+		foreach (array($base . '/' . $lang . '/' . $rel, $base . '/_shared/' . $rel) as $cand) {
+			$real = realpath($cand);
+			if (!$real || strpos($real, $base . DIRECTORY_SEPARATOR) !== 0 || !is_file($real)) continue;
+			$ext = strtolower(pathinfo($real, PATHINFO_EXTENSION));
+			$types = array('html' => 'text/html; charset=utf-8', 'css' => 'text/css; charset=utf-8', 'js' => 'text/javascript; charset=utf-8', 'json' => 'application/json; charset=utf-8',
+				'svg' => 'image/svg+xml', 'webp' => 'image/webp', 'png' => 'image/png', 'jpg' => 'image/jpeg', 'woff2' => 'font/woff2', 'woff' => 'font/woff', 'txt' => 'text/plain; charset=utf-8', 'xml' => 'application/xml');
+			if (!isset($types[$ext])) return false;
+			status_header(200);
+			header('Content-Type: ' . $types[$ext]);
+			header('X-Content-Type-Options: nosniff');
+			if ($hidden) { nocache_headers(); header('X-Robots-Tag: noindex, nofollow, noarchive'); }
+			elseif ($ext !== 'html') header('Cache-Control: public, max-age=86400');
+			if ($ext === 'html') { echo self::decorate(file_get_contents($real), $hidden); } // phpcs:ignore -- build output, escaped at build time.
+			else readfile($real);
+			return true;
+		}
+		return false;
 	}
 
 	static function lang() {
@@ -100,7 +132,7 @@ final class RB_Orsini {
 		else {
 			$r = wp_remote_request($url, array('method' => $method, 'headers' => $headers, 'timeout' => 15, 'redirection' => 0,
 				'body' => $method === 'POST' ? file_get_contents('php://input') : null));
-			if (is_wp_error($r)) self::fail(502);
+			if (is_wp_error($r)) { if ($is_api) self::json_fail(503); self::fail(502); }
 			$res = array('code' => (int) wp_remote_retrieve_response_code($r), 'type' => (string) wp_remote_retrieve_header($r, 'content-type'),
 				'location' => (string) wp_remote_retrieve_header($r, 'location'), 'body' => wp_remote_retrieve_body($r));
 			if ($cacheable && $res['code'] === 200) set_transient($cache_key, $res, strpos($res['type'], 'text/html') === 0 ? 5 * MINUTE_IN_SECONDS : HOUR_IN_SECONDS);
@@ -121,13 +153,15 @@ final class RB_Orsini {
 		exit;
 	}
 
+	static function json_fail($code) { status_header($code); nocache_headers(); header('Content-Type: application/json; charset=utf-8'); echo '{"error":"La matrícula encara no està disponible."}'; exit; }
+
 	static function fail($code) { status_header($code); nocache_headers(); header('Content-Type: text/plain; charset=utf-8'); echo (int) $code; exit; }
 
 	/** Replace the build's fallback strip with the real Radical Books identity and add the single RB consent manager. */
 	static function decorate($html, $hidden) {
 		$logo = self::rb_logo_url();
 		if ($logo) $html = preg_replace('#<span class="rb-strip__mark"[^>]*>RB</span><span>Radical Books</span>#', '<img src="' . esc_url($logo) . '" alt="Radical Books Coop" width="37" height="26">', $html, 1);
-		$footer = self::rb_consent_markup();
+		try { $footer = self::rb_consent_markup(); } catch (Throwable $e) { $footer = ''; }
 		if ($hidden) $footer .= '<div style="position:fixed;left:12px;bottom:12px;z-index:99999;background:#20231e;color:#fff;font:600 11px/1 Arial,sans-serif;padding:8px 10px;letter-spacing:.06em">VISTA PRÈVIA PRIVADA · ORSINI OCULT</div>';
 		return str_replace('</body>', $footer . '</body>', $html);
 	}
@@ -208,6 +242,8 @@ final class RB_Orsini {
 		if (isset($_GET['saved'])) echo '<div class="notice notice-success"><p>Desat.</p></div>';
 		echo '<h2>Estat</h2><table class="widefat striped" style="max-width:760px"><tbody>';
 		echo '<tr><th>Secció a WordPress (/orsini/)</th><td><strong>' . esc_html($state) . '</strong> — ' . (self::is_public() ? 'accessible al públic.' : '404 per als visitants; vista prèvia només per a administradors connectats.') . '</td></tr>';
+		$man = @json_decode((string) @file_get_contents(self::site_dir() . '/manifest.json'), true);
+		echo '<tr><th>Contingut</th><td>' . (is_array($man) ? 'Build del repositori · commit <code>' . esc_html($man['commit']) . '</code> · ' . esc_html(substr($man['built'], 0, 16)) . ' · ca/es/en' : '<strong>sense build</strong>') . '</td></tr>';
 		echo '<tr><th>Origen (Worker)</th><td><code>' . esc_html($o['upstream']) . '</code> · credencial de servei: ' . ($id && $se ? 'configurada' : '<strong>no configurada</strong>') . '</td></tr>';
 		if ($h['ok']) {
 			$d = $h['data'];
@@ -216,7 +252,7 @@ final class RB_Orsini {
 			echo '<tr><th>Worker · STRIPE_MODE / LIVE_PAYMENTS</th><td>' . esc_html(isset($d['STRIPE_MODE']) ? $d['STRIPE_MODE'] : '?') . ' / ' . $yes(!empty($d['LIVE_PAYMENTS'])) . '</td></tr>';
 			echo '<tr><th>Correu configurat</th><td>' . (!empty($d['email_configured']) ? 'sí' : 'no (els correus queden pendents)') . '</td></tr>';
 		} else {
-			echo '<tr><th>Connexió amb el Worker</th><td><strong style="color:#b42318">Error</strong> ' . esc_html(isset($h['code']) ? 'HTTP ' . $h['code'] : (isset($h['msg']) ? $h['msg'] : '')) . ' — sense connexió la vista prèvia no funciona.</td></tr>';
+			echo '<tr><th>Connexió amb el Worker</th><td><strong style="color:#b42318">Error</strong> ' . esc_html(isset($h['code']) ? 'HTTP ' . $h['code'] : (isset($h['msg']) ? $h['msg'] : '')) . ' — la web es veu igualment; la matrícula de prova necessita el Worker desplegat.</td></tr>';
 		}
 		echo '</tbody></table>';
 		echo '<p><a class="button" href="' . esc_url(home_url('/' . self::BASE . '/ca/')) . '" target="_blank">Vista prèvia privada (CA)</a> <a class="button" href="' . esc_url(home_url('/' . self::BASE . '/es/')) . '" target="_blank">ES</a> <a class="button" href="' . esc_url(home_url('/' . self::BASE . '/en/')) . '" target="_blank">EN</a></p>';

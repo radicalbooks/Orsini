@@ -1,7 +1,7 @@
-# Orsini per a Radical Books · 2.0.0
+# Orsini per a Radical Books · 2.1.0
 
-Integra Orsini a `radicalbooks.coop/orsini/` com a **intermediari** del Worker `orsini.radicalbooks.coop`.
-No conté cap còpia dels continguts: la font única és el repositori `radicalbooks/Orsini` (CMS + build ca/es/en).
+Integra Orsini a `radicalbooks.coop/orsini/` (ca/es/en).
+Inclou el build del repositori `radicalbooks/Orsini` (font única: CMS + traduccions) a `site/`; es regenera amb `node scripts/build-wp.mjs`. No s’edita aquí. L’API de matrícula passa pel Worker.
 
 | Estat | Visitants | Administradors connectats |
 | --- | --- | --- |
